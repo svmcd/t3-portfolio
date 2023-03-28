@@ -11,10 +11,15 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Example {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+model Post {
+  id            String   @id @default(cuid())
+  image         String?
+  title         String?
+  content       String? @db.VarChar(255)
+  technologies  Json?
+  date          DateTime?
+  link1         String?
+  link2         String?
 }
 
 // Necessary for Next auth
