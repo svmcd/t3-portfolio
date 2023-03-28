@@ -1,14 +1,10 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import { signIn, signOut, useSession } from "next-auth/react";
-
-import { api } from "@component/utils/api";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   const { data: sessionData } = useSession();
-  const { data: posts } = api.posts.getAll.useQuery();
-
-  console.log(posts);
 
   return (
     <>
@@ -22,14 +18,7 @@ const Home: NextPage = () => {
       >
         {sessionData ? "Sign out" : "Sign in"}
       </button>
-      <div>
-        {posts?.map((post) => (
-          <div key={post.id}>
-            <div key={post.id}>{post.title}</div>
-            <p>{post.content}</p>
-          </div>
-        ))}
-      </div>
+      <Link href="/posts">View posts</Link>
     </>
   );
 };
