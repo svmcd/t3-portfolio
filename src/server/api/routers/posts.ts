@@ -1,5 +1,3 @@
-import { z } from "zod";
-
 import { createTRPCRouter, publicProcedure } from "@component/server/api/trpc";
 
 export const postsRouter = createTRPCRouter({
