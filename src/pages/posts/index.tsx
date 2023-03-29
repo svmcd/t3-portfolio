@@ -8,8 +8,8 @@ type Post = RouterOutputs["posts"]["getAll"][number];
 const CreatePostWizard = () => {
   const [formData, setFormData] = useState<Post>({
     id: "",
-    image: "",
     title: "",
+    image: "",
     content: "",
     technologies: "",
     year: "",
@@ -17,7 +17,20 @@ const CreatePostWizard = () => {
     link2: "",
   });
 
-  const { mutate } = api.posts.createPost.useMutation();
+  const { mutate, isLoading } = api.posts.create.useMutation({
+    onSuccess: () => {
+      setFormData({
+        id: "",
+        image: "",
+        title: "",
+        content: "",
+        technologies: "",
+        year: "",
+        link1: "",
+        link2: "",
+      });
+    },
+  });
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -37,47 +50,34 @@ const CreatePostWizard = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="flex flex-col gap-1 text-black">
-        <input
-          type="text"
-          name="title"
-          placeholder="title"
-          onChange={handleInputChange}
-        />
-        <textarea
-          name="content"
-          placeholder="content"
-          onChange={handleInputChange}
-        ></textarea>
-        <input
-          type="text"
-          name="image"
-          placeholder="image"
-          onChange={handleInputChange}
-        />
-        <input
-          type="text"
-          name="technologies"
-          placeholder="technologies"
-          onChange={handleInputChange}
-        />
-        <input
-          type="text"
-          name="year"
-          placeholder="year"
-          onChange={handleInputChange}
-        />
-        <input
-          type="text"
-          name="link1"
-          placeholder="link1"
-          onChange={handleInputChange}
-        />
-        <input
-          type="text"
-          name="link2"
-          placeholder="link2"
-          onChange={handleInputChange}
-        />
+        {Object.entries(formData).map(([key, value]) => {
+          if (key === "id") {
+            return null; // don't render input for id
+          }
+          if (key === "content") {
+            return (
+              <textarea
+                key={key}
+                name={key}
+                value={value || undefined}
+                placeholder={key}
+                onChange={handleInputChange}
+                disabled={isLoading}
+              ></textarea>
+            );
+          }
+          return (
+            <input
+              key={key}
+              type="text"
+              name={key}
+              value={value || undefined}
+              placeholder={key}
+              onChange={handleInputChange}
+              disabled={isLoading}
+            />
+          );
+        })}
       </div>
       <input type="submit" />
     </form>

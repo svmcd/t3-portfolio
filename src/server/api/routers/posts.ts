@@ -3,10 +3,12 @@ import { z } from "zod";
 
 export const postsRouter = createTRPCRouter({
   getAll: publicProcedure.query(({ ctx }) => {
-    return ctx.prisma.post.findMany();
+    return ctx.prisma.post.findMany({
+      orderBy: [{ year: "desc" }],
+    });
   }),
 
-  createPost: publicProcedure
+  create: publicProcedure
     .input(
       z.object({
         title: z.string().optional(),
