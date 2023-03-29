@@ -7,13 +7,13 @@ type Post = RouterOutputs["posts"]["getAll"][number];
 
 const defaultFormData = {
   id: "",
-  title: "",
-  image: "",
-  content: "",
-  technologies: "",
-  year: "",
-  link1: "",
-  link2: "",
+  title: null,
+  image: null,
+  content: null,
+  technologies: null,
+  year: null,
+  link1: null,
+  link2: null,
 };
 
 const CreatePostWizard = () => {
@@ -67,7 +67,7 @@ const CreatePostWizard = () => {
               key={key}
               type="text"
               name={key}
-              value={formData[key] || ""}
+              value={formData[key as keyof Post] || ""}
               placeholder={key}
               onChange={handleInputChange}
               disabled={isLoading}
