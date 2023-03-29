@@ -12,9 +12,9 @@ const PostsPage: NextPage = () => {
       {posts?.map((post: Post) => (
         <div key={post.id} className="round my-4 bg-slate-800 p-4">
           <div key={post.id}>{post.title}</div>
-          {post.image && (
+          {post.imageUrl && (
             <Image
-              src={post.image || ""}
+              src={post.imageUrl || ""}
               alt={post.title || ""}
               width={200}
               height={200}

@@ -1,5 +1,6 @@
 import { createTRPCRouter, publicProcedure } from "@component/server/api/trpc";
 import { z } from "zod";
+import multer from "multer";
 
 export const postsRouter = createTRPCRouter({
   getAll: publicProcedure.query(({ ctx }) => {
@@ -13,7 +14,7 @@ export const postsRouter = createTRPCRouter({
       z.object({
         title: z.string().optional(),
         content: z.string().optional(),
-        image: z.string().optional(),
+        imageUrl: z.string().optional(),
         technologies: z.string().optional(),
         year: z.string().optional(),
         link1: z.string().optional(),

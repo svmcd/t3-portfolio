@@ -8,7 +8,7 @@ type Post = RouterOutputs["posts"]["getAll"][number];
 const defaultFormData = {
   id: "",
   title: null,
-  image: null,
+  imageUrl: null,
   content: null,
   technologies: null,
   year: null,
@@ -58,6 +58,17 @@ const CreatePost: NextPage = () => {
                 onChange={handleInputChange}
                 disabled={isLoading}
               ></textarea>
+            );
+          }
+          if (key === "imageUrl") {
+            return (
+              <input
+                key={key}
+                type="file"
+                name={key}
+                onChange={handleInputChange}
+                disabled={isLoading}
+              />
             );
           }
           return (
