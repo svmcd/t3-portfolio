@@ -5,30 +5,26 @@ import { useState } from "react";
 
 type Post = RouterOutputs["posts"]["getAll"][number];
 
+const defaultFormData = {
+  id: "",
+  title: "",
+  image: "",
+  content: "",
+  technologies: "",
+  year: "",
+  link1: "",
+  link2: "",
+};
+
 const CreatePostWizard = () => {
-  const [formData, setFormData] = useState<Post>({
-    id: "",
-    title: "",
-    image: "",
-    content: "",
-    technologies: "",
-    year: "",
-    link1: "",
-    link2: "",
-  });
+  const [formData, setFormData] = useState<Post>(defaultFormData);
 
   const { mutate, isLoading } = api.posts.create.useMutation({
     onSuccess: () => {
-      setFormData({
-        id: "",
-        image: "",
-        title: "",
-        content: "",
-        technologies: "",
-        year: "",
-        link1: "",
-        link2: "",
-      });
+      console.log("succ");
+      console.log(formData);
+      setFormData(defaultFormData);
+      console.log(formData);
     },
   });
 
@@ -50,7 +46,7 @@ const CreatePostWizard = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="flex flex-col gap-1 text-black">
-        {Object.entries(formData).map(([key, value]) => {
+        {Object.entries(formData).map(([key]) => {
           if (key === "id") {
             return null; // don't render input for id
           }
@@ -59,7 +55,7 @@ const CreatePostWizard = () => {
               <textarea
                 key={key}
                 name={key}
-                value={value || undefined}
+                value={formData[key] || ""}
                 placeholder={key}
                 onChange={handleInputChange}
                 disabled={isLoading}
@@ -71,7 +67,7 @@ const CreatePostWizard = () => {
               key={key}
               type="text"
               name={key}
-              value={value || undefined}
+              value={formData[key] || ""}
               placeholder={key}
               onChange={handleInputChange}
               disabled={isLoading}
