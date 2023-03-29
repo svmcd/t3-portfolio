@@ -11,16 +11,18 @@ const CreatePostWizard = () => {
     image: null,
     title: null,
     content: null,
-    technologies: [],
+    technologies: null,
     year: null,
     link1: null,
     link2: null,
   });
 
+  const { mutate } = api.posts.createPost.useMutation();
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(formData);
-    // api.posts.createPost.useMutation().mutate(formData);
+    mutate(formData);
   };
 
   const handleInputChange = (
@@ -90,7 +92,7 @@ const PostsPage: NextPage = () => {
           <div key={post.id}>{post.title}</div>
           {post.image && (
             <Image
-              src={post.image}
+              src={post.image || ""}
               alt={post.title || ""}
               width={200}
               height={200}

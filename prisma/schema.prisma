@@ -16,8 +16,8 @@ model Post {
   image         String?
   title         String?
   content       String? @db.VarChar(255)
-  technologies  Json?
-  year          Int?
+  technologies  String?
+  year          String?
   link1         String?
   link2         String?
 }
