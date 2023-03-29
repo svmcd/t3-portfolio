@@ -11,6 +11,14 @@ export type Post = {
   link2: string;
 };
 
+const CreatePostWizard = () => {
+  return (
+    <div>
+      <input type="text" />
+    </div>
+  );
+};
+
 const Posts: NextPage = () => {
   const { data: posts } = api.posts.getAll.useQuery();
 
@@ -22,6 +30,7 @@ const Posts: NextPage = () => {
           <p>{post.content}</p>
         </div>
       ))}
+      <CreatePostWizard />
     </>
   );
 };
