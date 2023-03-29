@@ -1,15 +1,7 @@
 import { type NextPage } from "next";
-import { api } from "@component/utils/api";
+import { api, RouterOutputs } from "@component/utils/api";
 
-export type Post = {
-  id: string;
-  title: string;
-  content: string;
-  technologies: string[];
-  date: Date;
-  link1: string;
-  link2: string;
-};
+type Post = RouterOutputs["posts"]["getAll"][number];
 
 const CreatePostWizard = () => {
   return (
@@ -19,15 +11,16 @@ const CreatePostWizard = () => {
   );
 };
 
-const Posts: NextPage = () => {
+const PostsPage: NextPage = () => {
   const { data: posts } = api.posts.getAll.useQuery();
 
   return (
     <>
-      {posts?.map((post) => (
+      {posts?.map((post: Post) => (
         <div key={post.id}>
           <div key={post.id}>{post.title}</div>
           <p>{post.content}</p>
+          <p>{post.year}</p>
         </div>
       ))}
       <CreatePostWizard />
@@ -35,4 +28,4 @@ const Posts: NextPage = () => {
   );
 };
 
-export default Posts;
+export default PostsPage;
