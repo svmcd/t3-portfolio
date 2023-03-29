@@ -8,21 +8,23 @@ type Post = RouterOutputs["posts"]["getAll"][number];
 const CreatePostWizard = () => {
   const [formData, setFormData] = useState<Post>({
     id: "",
-    image: null,
-    title: null,
-    content: null,
-    technologies: null,
-    year: null,
-    link1: null,
-    link2: null,
+    image: "",
+    title: "",
+    content: "",
+    technologies: "",
+    year: "",
+    link1: "",
+    link2: "",
   });
 
   const { mutate } = api.posts.createPost.useMutation();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(formData);
-    mutate(formData);
+    const formDataWithoutNulls = Object.fromEntries(
+      Object.entries(formData).map(([key, value]) => [key, value ?? undefined])
+    );
+    mutate(formDataWithoutNulls);
   };
 
   const handleInputChange = (
@@ -87,6 +89,7 @@ const PostsPage: NextPage = () => {
 
   return (
     <>
+      <CreatePostWizard />
       {posts?.map((post: Post) => (
         <div key={post.id} className="round my-4 bg-slate-800 p-4">
           <div key={post.id}>{post.title}</div>
@@ -102,7 +105,6 @@ const PostsPage: NextPage = () => {
           <p>{post.year}</p>
         </div>
       ))}
-      <CreatePostWizard />
     </>
   );
 };

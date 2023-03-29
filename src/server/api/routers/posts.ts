@@ -9,8 +9,8 @@ export const postsRouter = createTRPCRouter({
   createPost: publicProcedure
     .input(
       z.object({
-        title: z.string(),
-        content: z.string(),
+        title: z.string().optional(),
+        content: z.string().optional(),
         image: z.string().optional(),
         technologies: z.string().optional(),
         year: z.string().optional(),
