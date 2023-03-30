@@ -1,6 +1,5 @@
 import { createTRPCRouter, publicProcedure } from "@component/server/api/trpc";
 import { z } from "zod";
-import multer from "multer";
 
 export const postsRouter = createTRPCRouter({
   getAll: publicProcedure.query(({ ctx }) => {
