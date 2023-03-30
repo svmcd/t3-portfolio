@@ -7,6 +7,10 @@ type Post = RouterOutputs["posts"]["getAll"][number];
 const PostsPage: NextPage = () => {
   const { data: posts } = api.posts.getAll.useQuery();
 
+  if (!posts) {
+    return <h1>no data</h1>;
+  }
+
   return (
     <>
       {posts?.map((post: Post) => (
@@ -21,7 +25,11 @@ const PostsPage: NextPage = () => {
             />
           )}
           <p>{post.content}</p>
-          <p>{post.year}</p>
+          <p>
+            {post.technologies?.toUpperCase().replace(/ /g, ", ") ??
+              "no technologies specified"}
+          </p>
+          <p>{post.date}</p>
         </div>
       ))}
     </>

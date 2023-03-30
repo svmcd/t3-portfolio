@@ -4,7 +4,7 @@ import { z } from "zod";
 export const postsRouter = createTRPCRouter({
   getAll: publicProcedure.query(({ ctx }) => {
     return ctx.prisma.post.findMany({
-      orderBy: [{ year: "desc" }],
+      orderBy: [{ date: "desc" }],
     });
   }),
 
@@ -15,7 +15,7 @@ export const postsRouter = createTRPCRouter({
         content: z.string().optional(),
         imageUrl: z.string().optional(),
         technologies: z.string().optional(),
-        year: z.string().optional(),
+        date: z.string().optional(),
         link1: z.string().optional(),
         link2: z.string().optional(),
       })

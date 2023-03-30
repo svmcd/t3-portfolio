@@ -1,7 +1,8 @@
 import { type NextPage } from "next";
+import { useRouter } from "next/router";
 import { api, type RouterOutputs } from "@component/utils/api";
 import { useState } from "react";
-import { useSession, getSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 type Post = RouterOutputs["posts"]["getAll"][number];
 
@@ -11,20 +12,30 @@ const defaultFormData = {
   imageUrl: null,
   content: null,
   technologies: null,
-  year: null,
+  date: null,
   link1: null,
   link2: null,
 };
 
 const CreatePost: NextPage = () => {
+  const { data: session, status } = useSession();
   const [formData, setFormData] = useState<Post>(defaultFormData);
+  const router = useRouter();
+
+  if (status === "loading") {
+    return <p>Loading...</p>;
+  }
+
+  if (status === "unauthenticated") {
+    void router.push("/");
+    return null;
+  }
 
   const { mutate, isLoading } = api.posts.create.useMutation({
     onSuccess: () => {
       setFormData(defaultFormData);
     },
   });
-
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formDataWithoutNulls = Object.fromEntries(
@@ -60,12 +71,14 @@ const CreatePost: NextPage = () => {
               ></textarea>
             );
           }
-          if (key === "imageUrl") {
+          if (key === "date") {
             return (
               <input
                 key={key}
-                type="file"
+                type="month"
                 name={key}
+                value={formData[key as keyof Post] || ""}
+                placeholder={key}
                 onChange={handleInputChange}
                 disabled={isLoading}
               />

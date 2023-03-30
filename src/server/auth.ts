@@ -44,6 +44,14 @@ export const authOptions: NextAuthOptions = {
       }
       return session;
     },
+    signIn: (session) => {
+      // Check if the user's email matches your email address
+      if (session.user.email === "spolat0750@gmail.com") {
+        return true; // Allow sign in
+      } else {
+        return false; // Block sign in
+      }
+    },
   },
   adapter: PrismaAdapter(prisma),
   providers: [
