@@ -46,7 +46,7 @@ export const authOptions: NextAuthOptions = {
     },
     signIn: (session) => {
       // Check if the user's email matches your email address
-      if (session.user.email === "spolat0750@gmail.com") {
+      if (session.user.email === env.EMAIL) {
         return true; // Allow sign in
       } else {
         return false; // Block sign in
