@@ -1,5 +1,6 @@
 import { type NextPage } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { api, type RouterOutputs } from "@component/utils/api";
 
 type Post = RouterOutputs["posts"]["getAll"][number];
@@ -14,7 +15,7 @@ const PostsPage: NextPage = () => {
   return (
     <>
       {posts?.map((post: Post) => (
-        <div key={post.id} className="round my-4 bg-slate-800 p-4">
+        <div key={post.id} className="round my-4 bg-slate-200 p-4">
           <div key={post.id}>{post.title}</div>
           {post.imageUrl && (
             <Image
@@ -30,6 +31,7 @@ const PostsPage: NextPage = () => {
               "no technologies specified"}
           </p>
           <p>{post.date}</p>
+          <Link href={`/posts/${post.id}`}>read more</Link>
         </div>
       ))}
     </>
