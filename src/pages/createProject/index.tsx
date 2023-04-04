@@ -4,7 +4,7 @@ import { api, type RouterOutputs } from "@component/utils/api";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 
-type Post = RouterOutputs["posts"]["getAll"][number];
+type Project = RouterOutputs["projects"]["getAll"][number];
 
 const defaultFormData = {
   id: "",
@@ -17,9 +17,9 @@ const defaultFormData = {
   link2: null,
 };
 
-const CreatePost: NextPage = () => {
+const CreateProject: NextPage = () => {
   const { data: session, status } = useSession();
-  const [formData, setFormData] = useState<Post>(defaultFormData);
+  const [formData, setFormData] = useState<Project>(defaultFormData);
   const router = useRouter();
 
   if (status === "loading") {
@@ -31,7 +31,7 @@ const CreatePost: NextPage = () => {
     return null;
   }
 
-  const { mutate, isLoading } = api.posts.create.useMutation({
+  const { mutate, isLoading } = api.projects.create.useMutation({
     onSuccess: () => {
       setFormData(defaultFormData);
     },
@@ -77,7 +77,7 @@ const CreatePost: NextPage = () => {
                 key={key}
                 type="month"
                 name={key}
-                value={formData[key as keyof Post] || ""}
+                value={formData[key as keyof Project] || ""}
                 placeholder={key}
                 onChange={handleInputChange}
                 disabled={isLoading}
@@ -89,7 +89,7 @@ const CreatePost: NextPage = () => {
               key={key}
               type="text"
               name={key}
-              value={formData[key as keyof Post] || ""}
+              value={formData[key as keyof Project] || ""}
               placeholder={key}
               onChange={handleInputChange}
               disabled={isLoading}
@@ -102,4 +102,4 @@ const CreatePost: NextPage = () => {
   );
 };
 
-export default CreatePost;
+export default CreateProject;

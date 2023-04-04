@@ -1,9 +1,9 @@
 import { createTRPCRouter, publicProcedure } from "@component/server/api/trpc";
 import { z } from "zod";
 
-export const postsRouter = createTRPCRouter({
+export const projectsRouter = createTRPCRouter({
   getAll: publicProcedure.query(({ ctx }) => {
-    return ctx.prisma.post.findMany({
+    return ctx.prisma.project.findMany({
       orderBy: [{ date: "desc" }],
     });
   }),
@@ -21,10 +21,10 @@ export const postsRouter = createTRPCRouter({
       })
     )
     .mutation(async ({ ctx, input }) => {
-      const post = await ctx.prisma.post.create({
+      const project = await ctx.prisma.project.create({
         data: input,
       });
 
-      return post;
+      return project;
     }),
 });

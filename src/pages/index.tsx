@@ -19,8 +19,8 @@ const Home: NextPage = () => {
         >
           {sessionData ? "Sign out" : "Sign in"}
         </button>
-        <Link href="/posts">View posts</Link>
-        <Link href="/createPost">Create post</Link>
+        <Link href="/projects">View projects</Link>
+        <Link href="/createProject">Create project</Link>
       </div>
     </>
   );

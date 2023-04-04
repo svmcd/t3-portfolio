@@ -11,7 +11,7 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Post {
+model Project {
   id            String   @id @default(cuid())
   imageUrl      String?
   title         String?
