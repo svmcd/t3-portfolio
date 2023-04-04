@@ -25,12 +25,10 @@ const ProjectsPage: NextPage = () => {
               height={200}
             />
           )}
-          <p>{project.content}</p>
           <p>
             {project.technologies?.toUpperCase().replace(/ /g, ", ") ??
               "no technologies specified"}
           </p>
-          <p>{project.date}</p>
           <Link href={`/projects/${project.id}`}>read more</Link>
         </div>
       ))}
