@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const Logo = ({ theme }: Record<string, unknown>) => {
+const Header = ({ theme }: Record<string, unknown>) => {
   return (
     <>
       <div className="pointer-events-none absolute top-0 left-0 h-20	select-none">
@@ -22,4 +22,4 @@ const Logo = ({ theme }: Record<string, unknown>) => {
   );
 };
 
-export default Logo;
+export default Header;
