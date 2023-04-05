@@ -3,7 +3,11 @@ const config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'dark': '#0c0a09',
+      },
+    },
   },
   plugins: [],
 };

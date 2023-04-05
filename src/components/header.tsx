@@ -12,7 +12,7 @@ export const Header = ({ theme }: Record<string, unknown>) => {
 
   return (
     <>
-      <div className="pointer-events-none absolute top-0 left-0 h-20	select-none">
+      <div className="pointer-events-none select-none">
         <Image
           src="/logo.gif"
           alt="gif"

@@ -9,11 +9,9 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div>
+      <div className="flex h-full flex-col items-end justify-end">
         <button onClick={() => setTheme("light")}>Light Mode</button>
         <button onClick={() => setTheme("dark")}>Dark Mode</button>
-      </div>
-      <div className="flex flex-col">
         <button
           onClick={sessionData ? () => void signOut() : () => void signIn()}
         >
