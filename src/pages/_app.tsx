@@ -7,6 +7,8 @@ import { api } from "@component/utils/api";
 
 import "@component/styles/globals.css";
 
+import { Main } from "@component/components/Main";
+
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
@@ -14,7 +16,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <SessionProvider session={session}>
       <ThemeProvider attribute="class">
-        <Component {...pageProps} />
+        <Main>
+          <Component {...pageProps} />
+        </Main>
       </ThemeProvider>
     </SessionProvider>
   );

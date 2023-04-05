@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const Header = ({ theme }: Record<string, unknown>) => {
+export const Header = ({ theme }: Record<string, unknown>) => {
   const [logoClass, setLogoClass] = useState("");
 
   useEffect(() => {
@@ -26,5 +26,3 @@ const Header = ({ theme }: Record<string, unknown>) => {
     </>
   );
 };
-
-export default Header;
