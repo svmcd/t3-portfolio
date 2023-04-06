@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import { Header } from "@component/components/Header";
 import { Sphere } from "@component/components/Sphere";
 import { Frame } from "@component/components/Frame";
+import { ThemeToggle } from "@component/components/ThemeToggle";
 
 export const Main: FC<PropsWithChildren> = ({ children }) => {
   const { theme } = useTheme();
@@ -21,6 +22,7 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
         <Sphere theme={theme} />
         <div className="solid relative z-20 grid h-full w-full grid-cols-2 border border-stone-800 p-4 dark:border-stone-300">
           <CustomCursor />
+          <ThemeToggle />
           <section className="">
             <Header theme={theme} />
           </section>

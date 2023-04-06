@@ -14,7 +14,7 @@ export const Sphere = ({ theme }: Record<string, unknown>) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [noiseIntensity, setNoiseIntensity] = useState(0);
   const sphereColor = useMemo(
-    () => new THREE.Color(theme === "light" ? "#FFFFFF" : "#171717"),
+    () => new THREE.Color(theme === "light" ? "#FFFFFF" : "#1c1917"),
     [theme]
   );
 
@@ -33,7 +33,7 @@ export const Sphere = ({ theme }: Record<string, unknown>) => {
     };
 
     const light = new THREE.PointLight(0xffffff, 2, 50);
-    light.position.set(5, 15, 15);
+    light.position.set(5, 10, 15);
     scene.add(light);
 
     const camera = new THREE.PerspectiveCamera(
@@ -84,6 +84,7 @@ export const Sphere = ({ theme }: Record<string, unknown>) => {
         width: "100%",
         height: "100%",
         background: "transparent",
+        color: sphereColor.getStyle(),
       }}
     ></canvas>
   );
