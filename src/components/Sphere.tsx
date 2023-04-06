@@ -1,5 +1,4 @@
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass";
@@ -7,7 +6,8 @@ import React, { useEffect, useRef, useState } from "react";
 
 export const Sphere: React.FC = ({ theme }: Record<string, unknown>) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [sphereColor, setSphereColor] = useState("");
+  const [sphereColor, setSphereColor] = useState("#171717");
+  const [noiseIntensity, setNoiseIntensity] = useState(0);
 
   useEffect(() => {
     //scene
@@ -48,38 +48,24 @@ export const Sphere: React.FC = ({ theme }: Record<string, unknown>) => {
     //postprocessing
     const composer = new EffectComposer(renderer);
     composer.addPass(new RenderPass(scene, camera));
-    const filmPass = new FilmPass(
-      0.5, // noise intensity
-      0, // scanline intensity
-      0, // scanline count
-      0 // grayscale
-    );
+    const filmPass = new FilmPass(noiseIntensity);
     composer.addPass(filmPass);
-
-    //controls
-    const controls = new OrbitControls(camera, canvas);
-    controls.enableDamping = true;
-
-    controls.enableRotate = false;
-    controls.enablePan = false;
-    controls.enableZoom = false;
-    controls.autoRotate = false;
-    controls.autoRotateSpeed = 0;
 
     //animate
     const animate = () => {
       sphere.rotation.y += 0.0025; // manually rotate the sphere
-      controls.update();
       composer.render();
       requestAnimationFrame(animate);
     };
 
     animate();
-  }, [sphereColor]);
+  }, [sphereColor, noiseIntensity]);
 
   useEffect(() => {
     const newSphereColor = theme === "light" ? "#FFFFFF" : "#171717";
+    const newNoiseIntensity = theme === "light" ? 0.15 : 20;
     setSphereColor(newSphereColor);
+    setNoiseIntensity(newNoiseIntensity);
   }, [theme]);
 
   return (
