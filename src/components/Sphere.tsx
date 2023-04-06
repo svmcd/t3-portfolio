@@ -4,9 +4,10 @@ import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass";
 import React, { useEffect, useRef, useState } from "react";
 
-export const Sphere: React.FC = ({ theme }: Record<string, unknown>) => {
+export const Sphere = ({ theme }: Record<string, unknown>) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [sphereColor, setSphereColor] = useState("#171717");
+  const [sphereColor, setSphereColor] = useState(new THREE.Color("#171717"));
+
   const [noiseIntensity, setNoiseIntensity] = useState(0);
 
   useEffect(() => {
@@ -15,14 +16,16 @@ export const Sphere: React.FC = ({ theme }: Record<string, unknown>) => {
 
     //creating sphere
     const geometry = new THREE.SphereGeometry(1, 8, 8);
-    const material = new THREE.MeshStandardMaterial({ color: sphereColor });
+    const material = new THREE.MeshStandardMaterial({
+      color: new THREE.Color(sphereColor),
+    });
     const sphere = new THREE.Mesh(geometry, material);
     scene.add(sphere);
 
     //sizes
     const sizes = {
-      width: canvasRef.current.clientWidth,
-      height: canvasRef.current.clientHeight,
+      width: canvasRef.current?.clientWidth ?? 0,
+      height: canvasRef.current?.clientHeight ?? 0,
     };
 
     //light
@@ -42,7 +45,8 @@ export const Sphere: React.FC = ({ theme }: Record<string, unknown>) => {
 
     //renderer
     const canvas = canvasRef.current;
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true }); // set alpha to true
+    if (!canvas) return;
+    const renderer = new THREE.WebGLRenderer({ canvas });
     renderer.setSize(sizes.width, sizes.height);
 
     //postprocessing
@@ -62,7 +66,10 @@ export const Sphere: React.FC = ({ theme }: Record<string, unknown>) => {
   }, [sphereColor, noiseIntensity]);
 
   useEffect(() => {
-    const newSphereColor = theme === "light" ? "#FFFFFF" : "#171717";
+    const newSphereColor =
+      theme === "light"
+        ? new THREE.Color("#FFFFFF")
+        : new THREE.Color("#171717");
     const newNoiseIntensity = theme === "light" ? 0.15 : 20;
     setSphereColor(newSphereColor);
     setNoiseIntensity(newNoiseIntensity);
