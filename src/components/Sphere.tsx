@@ -13,7 +13,7 @@ const Sphere: React.FC = () => {
     const scene = new THREE.Scene();
 
     //creating sphere
-    const geometry = new THREE.SphereGeometry(1, 10, 10);
+    const geometry = new THREE.SphereGeometry(1, 16, 16);
     const material = new THREE.MeshLambertMaterial({ color: "#78716c" });
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
@@ -25,7 +25,7 @@ const Sphere: React.FC = () => {
     };
 
     //light
-    const light = new THREE.PointLight(0xffffff, 1, 100);
+    const light = new THREE.PointLight(0xffffff, 1, 50);
     light.position.set(25, 10, 15);
     scene.add(light);
 
@@ -36,7 +36,7 @@ const Sphere: React.FC = () => {
       0.1,
       100
     );
-    camera.position.z = 2.5;
+    camera.position.z = 1.5;
     scene.add(camera);
 
     //renderer
@@ -59,12 +59,23 @@ const Sphere: React.FC = () => {
     //controls
     const controls = new OrbitControls(camera, canvas);
     controls.enableDamping = true;
-    controls.rotateSpeed = -0.25;
     controls.enableRotate = false;
     controls.enablePan = false;
     controls.enableZoom = false;
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 0.5;
+    controls.autoRotate = false;
+    controls.autoRotateSpeed = 2.5;
+
+    //mouse movement
+    let mouseX = 0;
+    let mouseY = 0;
+
+    canvas.addEventListener("mousemove", (event) => {
+      mouseX = event.clientX / sizes.width - 0.5;
+      mouseY = -(event.clientY / sizes.height - 0.5);
+      camera.position.x = mouseX * 2;
+      camera.position.y = mouseY * 2;
+      camera.lookAt(mesh.position);
+    });
 
     //animate
     const animate = () => {
@@ -72,7 +83,7 @@ const Sphere: React.FC = () => {
         controls.update();
         composer.render();
         requestAnimationFrame(animate);
-      }, 1000 / 10); // reduce frame rate to 30 fps
+      }, 1000 / 10);
     };
 
     animate();
@@ -81,7 +92,7 @@ const Sphere: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute"
+      className="fixed"
       style={{ width: "100%", height: "100%", background: "transparent" }} // set canvas background to transparent
     ></canvas>
   );
