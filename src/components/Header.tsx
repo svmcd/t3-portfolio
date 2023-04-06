@@ -18,7 +18,6 @@ export const Header = ({ theme }: Record<string, unknown>) => {
           alt="gif"
           height={200}
           width={200}
-          unoptimized={true}
           className={logoClass}
         />
         <p>Developer & Designer</p>

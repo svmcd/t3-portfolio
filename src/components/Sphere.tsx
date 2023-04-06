@@ -33,7 +33,7 @@ export const Sphere = ({ theme }: Record<string, unknown>) => {
     };
 
     const light = new THREE.PointLight(0xffffff, 2, 50);
-    light.position.set(5, 10, 15);
+    light.position.set(5, 5, 15);
     scene.add(light);
 
     const camera = new THREE.PerspectiveCamera(
