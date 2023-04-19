@@ -13,26 +13,27 @@ const ProjectsPage: NextPage = () => {
   }
 
   return (
-    <>
+    <div className="scrollbar-hide fixed right-[33px] top-0 h-screen overflow-y-scroll">
       {projects?.map((project: Project) => (
-        <div key={project.id} className="round my-4 bg-slate-200 p-4">
+        <div key={project.id} className="round my-4 bg-slate-100 p-4">
           <div>{project.title}</div>
           {project.imageUrl && (
             <Image
               src={project.imageUrl || ""}
               alt={project.title || ""}
-              width={200}
-              height={200}
+              width={100}
+              height={100}
             />
           )}
           <p>
             {project.technologies?.toUpperCase().replace(/ /g, ", ") ??
               "no technologies specified"}
           </p>
+          <p>{project.date}</p>
           <Link href={`/projects/${project.id}`}>read more</Link>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 

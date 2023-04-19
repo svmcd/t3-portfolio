@@ -3,9 +3,20 @@
 @tailwind utilities;
 
 body {
-  @apply flex min-h-screen items-center justify-center bg-stone-200 font-light text-red-500 transition-colors duration-500 ease-linear dark:bg-dark dark:text-red-500;
+  @apply flex min-h-screen items-center justify-center bg-stone-200 font-light text-stone-800 transition-colors duration-500 ease-linear dark:bg-dark dark:text-red-500;
 }
 
 /* * {
   @apply cursor-none hover:cursor-none;
 } */
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

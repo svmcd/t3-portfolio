@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Typography } from "@component/components/Typography";
 
 export const Header = ({ theme }: Record<string, unknown>) => {
   const [logoClass, setLogoClass] = useState("");
@@ -20,7 +21,7 @@ export const Header = ({ theme }: Record<string, unknown>) => {
           width={200}
           className={logoClass}
         />
-        <p>Developer & Designer</p>
+        <Typography variant="heading">Developer & Designer</Typography>
       </div>
     </>
   );

@@ -18,7 +18,8 @@ export const Typography: FC<TypographyProps> = ({
       className = className = "font-light text-stone-900 dark:text-stone-300";
       break;
     case "heading":
-      className = "font-light text-stone-900 dark:text-stone-300";
+      className =
+        "font-light text-stone-900 dark:text-stone-300 hover:opacity-40 duration-300";
       break;
     case "text":
       className = "font-light text-stone-900 dark:text-stone-300";
