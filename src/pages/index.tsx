@@ -1,6 +1,7 @@
 import { type NextPage } from "next";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import { Typography } from "@component/components/Typography";
 
 const Home: NextPage = () => {
   const { data: sessionData } = useSession();
@@ -13,8 +14,12 @@ const Home: NextPage = () => {
         >
           {sessionData ? "Sign out" : "Sign in"}
         </button>
-        <Link href="/projects">View projects</Link>
-        <Link href="/createProject">Create project</Link>
+        <Link href="/projects">
+          <Typography variant="heading">View project</Typography>
+        </Link>
+        <Link href="/createProject">
+          <Typography variant="heading">Create project</Typography>
+        </Link>
       </div>
     </>
   );

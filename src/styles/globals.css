@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply flex min-h-screen items-center justify-center bg-stone-200 font-light text-stone-900 transition-colors duration-500 ease-linear dark:bg-dark dark:text-stone-300;
+  @apply flex min-h-screen items-center justify-center bg-stone-200 font-light text-red-500 transition-colors duration-500 ease-linear dark:bg-dark dark:text-red-500;
 }
 
 /* * {
