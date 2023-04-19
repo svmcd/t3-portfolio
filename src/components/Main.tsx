@@ -19,7 +19,7 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
       </Head>
       <main className=" bg-r relative flex h-screen w-screen items-center justify-center p-8">
         <Frame />
-        <Sphere theme={theme} />
+        {/* <Sphere theme={theme} /> */}
         <div className="solid relative z-20 grid h-full w-full grid-cols-2 border border-stone-800 p-4 dark:border-stone-300">
           <CustomCursor />
           <ThemeToggle />
