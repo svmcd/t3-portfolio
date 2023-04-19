@@ -26,8 +26,12 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
           <section className="col-span-2 row-span-1">
             <Header theme={theme} />
           </section>
-          <section className=" row-span-5 "></section>
-          <section className="relative row-span-5 ">{children}</section>
+          <section className="row-span-5"></section>
+          <section className="row-span-5 ">
+            <div className="scrollbar-hide fixed right-[33px] top-0 h-screen overflow-y-scroll py-48">
+              {children}
+            </div>
+          </section>
         </div>
       </main>
     </>

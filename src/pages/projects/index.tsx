@@ -1,7 +1,7 @@
 import { type NextPage } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { api, type RouterOutputs } from "@component/utils/api";
+import { Typography } from "@component/components/Typography";
 
 type Project = RouterOutputs["projects"]["getAll"][number];
 
@@ -13,25 +13,16 @@ const ProjectsPage: NextPage = () => {
   }
 
   return (
-    <div className="scrollbar-hide fixed right-[33px] top-0 h-screen overflow-y-scroll">
+    <div className="flex flex-col gap-12 text-right">
       {projects?.map((project: Project) => (
-        <div key={project.id} className="round my-4 bg-slate-100 p-4">
-          <div>{project.title}</div>
-          {project.imageUrl && (
-            <Image
-              src={project.imageUrl || ""}
-              alt={project.title || ""}
-              width={100}
-              height={100}
-            />
-          )}
-          <p>
-            {project.technologies?.toUpperCase().replace(/ /g, ", ") ??
-              "no technologies specified"}
-          </p>
-          <p>{project.date}</p>
-          <Link href={`/projects/${project.id}`}>read more</Link>
-        </div>
+        <Link
+          key={project.id}
+          href={`/projects/${project.id}`}
+          className=" duration-300 hover:opacity-40"
+        >
+          <Typography variant="title">{project.title}</Typography>
+          <Typography variant="heading">{project.date}</Typography>
+        </Link>
       ))}
     </div>
   );
