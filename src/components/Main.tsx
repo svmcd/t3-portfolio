@@ -20,10 +20,10 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
       </Head>
       <main className=" flex h-screen w-screen items-center justify-center p-8">
         <Frame />
+        <ThemeToggle />
         {/* <CustomCursor /> */}
         {/* <Sphere theme={theme} /> */}
         <div className="solid absolute bottom-8 right-8 left-8 top-8 z-[0] grid grid-cols-2 grid-rows-6 border border-stone-800  dark:border-stone-300">
-          <ThemeToggle />
           <section className="col-span-2 row-span-1">
             <Header theme={theme} />
           </section>

@@ -25,7 +25,7 @@ export const Typography: FC<TypographyProps> = ({
       className = "font-light text-lg text-stone-900 dark:text-stone-300";
       break;
     case "text":
-      className = "font-light text-stone-900 dark:text-stone-300";
+      className = "font-light text-sm text-stone-900 dark:text-stone-300";
       break;
     default:
       className = "font-light text-stone-900 dark:text-stone-300";
