@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import { Header } from "@component/components/Header";
 import { Sphere } from "@component/components/Sphere";
 import { Frame } from "@component/components/Frame";
+import { Sidebar } from "@component/components/Sidebar";
 import { ThemeToggle } from "@component/components/ThemeToggle";
 
 export const Main: FC<PropsWithChildren> = ({ children }) => {
@@ -26,7 +27,9 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
           <section className="col-span-2 row-span-1">
             <Header theme={theme} />
           </section>
-          <section className="row-span-5"></section>
+          <section className="row-span-5">
+            <Sidebar />
+          </section>
           <section className="row-span-5 ">
             <div className="scrollbar-hide fixed right-[33px] top-0 h-screen overflow-y-scroll py-48">
               {children}
