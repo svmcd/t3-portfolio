@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { api } from "@component/utils/api";
-import { motion } from "framer-motion";
+import { Motion } from "@component/components/Motion";
 
 const Project = () => {
   const router = useRouter();
@@ -10,12 +10,7 @@ const Project = () => {
   const foundProject = projects?.find((p) => p.id === router.query.projectId);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 100 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: 100 }}
-      transition={{ duration: 0.5 }}
-    >
+    <Motion>
       <div key={foundProject?.id}>
         <div>{foundProject?.title}</div>
         {foundProject?.imageUrl && (
@@ -33,7 +28,7 @@ const Project = () => {
         <p>{foundProject?.content}</p>
         <p>{foundProject?.date}</p>
       </div>
-    </motion.div>
+    </Motion>
   );
 };
 

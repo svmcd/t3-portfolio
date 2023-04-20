@@ -1,7 +1,7 @@
 import type { FC } from "react";
 
 interface TypographyProps {
-  variant: "title" | "heading" | "text";
+  variant: "title" | "heading" | "text" | "light-text";
   clickable?: boolean;
   bold?: boolean;
   children: React.ReactNode;
@@ -19,16 +19,19 @@ export const Typography: FC<TypographyProps> = ({
   switch (variant) {
     case "title":
       className = className =
-        "font-light text-4xl text-stone-900 dark:text-stone-300";
+        "f-light text-4xl text-stone-900 dark:text-stone-300";
       break;
     case "heading":
-      className = "font-light text-lg text-stone-900 dark:text-stone-300";
+      className = "f-light text-lg text-stone-900 dark:text-stone-300";
       break;
     case "text":
-      className = "font-light text-sm text-stone-900 dark:text-stone-300";
+      className = "text-base f-bold text-stone-900 dark:text-stone-300";
+      break;
+    case "light-text":
+      className = "text-base f-light text-stone-900 dark:text-stone-300";
       break;
     default:
-      className = "font-light text-stone-900 dark:text-stone-300";
+      className = "text-base text-stone-900 dark:text-stone-300";
   }
   if (clickable) {
     hoverClassName = "hover:opacity-40 duration-300";

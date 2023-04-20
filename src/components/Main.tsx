@@ -7,7 +7,6 @@ import { Sphere } from "@component/components/Sphere";
 import { Frame } from "@component/components/Frame";
 import { Sidebar } from "@component/components/Sidebar";
 import { ThemeToggle } from "@component/components/ThemeToggle";
-import { Motion } from "@component/components/Motion";
 
 export const Main: FC<PropsWithChildren> = ({ children }) => {
   const { theme } = useTheme();
@@ -24,7 +23,7 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
         <ThemeToggle />
         {/* <CustomCursor /> */}
         {/* <Sphere theme={theme} /> */}
-        <div className="solid absolute bottom-8 right-8 left-8 top-8 z-[0] grid grid-cols-2 grid-rows-6 border border-stone-800  dark:border-stone-300">
+        <div className="solid absolute bottom-8 right-8 left-8 top-8 z-[0] grid grid-cols-2 grid-rows-6 border border-stone-800 p-[20px]  dark:border-stone-400">
           <section className="col-span-2 row-span-1">
             <Header theme={theme} />
           </section>
@@ -32,7 +31,7 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
             <Sidebar />
           </section>
           <section className="row-span-5 ">
-            <div className="scrollbar-hide fixed right-[33px] top-0 h-screen overflow-y-scroll py-48">
+            <div className="scrollbar-hide fixed right-0 top-0  h-screen overflow-y-scroll py-48 pr-[53px]">
               {children}
             </div>
           </section>

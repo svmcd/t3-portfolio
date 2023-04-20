@@ -23,7 +23,7 @@ const ProjectsPage: NextPage = () => {
             className=" duration-300 hover:opacity-40"
           >
             <Typography variant="title">{project.title}</Typography>
-            <Typography variant="heading">{project.date}</Typography>
+            <Typography variant="text">{project.date}</Typography>
           </Link>
         ))}
       </div>

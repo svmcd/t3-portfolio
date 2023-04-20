@@ -2,8 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: bold;
+  src: url("../../public/fonts/NeueMontreal/NeueMontreal-Medium.otf");
+}
+
+@font-face {
+  font-family: medium;
+  src: url("../../public/fonts/NeueMontreal/NeueMontreal-Regular.otf");
+}
+
+@font-face {
+  font-family: light;
+  src: url("../../public/fonts/NeueMontreal/NeueMontreal-Light.otf");
+}
+
 body {
-  @apply flex min-h-screen items-center justify-center bg-stone-200 font-light text-stone-800 transition-colors duration-500 ease-linear dark:bg-dark dark:text-red-500;
+  @apply f-medium flex min-h-screen items-center justify-center bg-stone-200 text-xl text-stone-800 transition-colors duration-500 ease-linear dark:bg-dark dark:text-stone-200;
+}
+
+.f-bold {
+  font-family: bold;
+}
+
+.f-medium {
+  font-family: medium;
+}
+
+.f-light {
+  font-family: light;
 }
 
 /* * {

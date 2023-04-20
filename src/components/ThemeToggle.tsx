@@ -10,15 +10,15 @@ export const ThemeToggle = () => {
         onClick={() => setTheme("light")}
         className="flex flex-row items-center gap-[2px]"
       >
-        <div className="solid h-[10px] w-[10px] border-[1px] border-black bg-black  dark:border-white dark:bg-transparent" />
-        <Typography variant="text">LIGHT</Typography>
+        <div className="solid h-[12px] w-[12px] border-[1px] border-black bg-stone-800  dark:border-stone-400 dark:bg-transparent" />
+        <Typography variant="light-text">LIGHT</Typography>
       </button>
       <button
         onClick={() => setTheme("dark")}
         className="flex flex-row items-center gap-[2px]"
       >
-        <div className="solid h-[10px] w-[10px] border-[1px] border-black dark:border-white dark:bg-white" />
-        <Typography variant="text">DARK</Typography>
+        <div className="solid dark:stone-400 h-[12px] w-[12px] border-[1px] border-stone-500 dark:bg-stone-300" />
+        <Typography variant="light-text">DARK</Typography>
       </button>
     </div>
   );

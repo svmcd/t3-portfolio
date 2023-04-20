@@ -8,16 +8,16 @@ export const Sidebar = () => {
   return (
     <div>
       <Link href="/">
-        <Typography variant="heading">Home</Typography>
+        <Typography variant="text">Home</Typography>
       </Link>
       <Link href="/projects">
-        <Typography variant="heading">View projects</Typography>
+        <Typography variant="text">View projects</Typography>
       </Link>
       <Link href="/contact">
-        <Typography variant="heading">Contact</Typography>
+        <Typography variant="text">Contact</Typography>
       </Link>
       <Link href="/createProject">
-        <Typography variant="heading">Create project</Typography>
+        <Typography variant="text">Create project</Typography>
       </Link>
       <button
         onClick={sessionData ? () => void signOut() : () => void signIn()}

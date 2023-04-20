@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { api, type RouterOutputs } from "@component/utils/api";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
+import { Motion } from "@component/components/Motion";
 
 type Project = RouterOutputs["projects"]["getAll"][number];
 
@@ -52,30 +53,43 @@ const CreateProject: NextPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="flex flex-col gap-1 text-black">
-        {Object.entries(formData).map(([key]) => {
-          if (key === "id") {
-            return null; // don't render input for id
-          }
-          if (key === "content") {
-            return (
-              // render a textarea for content
-              <textarea
-                key={key}
-                name={key}
-                value={formData[key] || ""}
-                placeholder={key}
-                onChange={handleInputChange}
-                disabled={isLoading}
-              ></textarea>
-            );
-          }
-          if (key === "date") {
+    <Motion>
+      <form onSubmit={handleSubmit}>
+        <div className="flex flex-col gap-1 text-black">
+          {Object.entries(formData).map(([key]) => {
+            if (key === "id") {
+              return null; // don't render input for id
+            }
+            if (key === "content") {
+              return (
+                // render a textarea for content
+                <textarea
+                  key={key}
+                  name={key}
+                  value={formData[key] || ""}
+                  placeholder={key}
+                  onChange={handleInputChange}
+                  disabled={isLoading}
+                ></textarea>
+              );
+            }
+            if (key === "date") {
+              return (
+                <input
+                  key={key}
+                  type="month"
+                  name={key}
+                  value={formData[key as keyof Project] || ""}
+                  placeholder={key}
+                  onChange={handleInputChange}
+                  disabled={isLoading}
+                />
+              );
+            }
             return (
               <input
                 key={key}
-                type="month"
+                type="text"
                 name={key}
                 value={formData[key as keyof Project] || ""}
                 placeholder={key}
@@ -83,22 +97,11 @@ const CreateProject: NextPage = () => {
                 disabled={isLoading}
               />
             );
-          }
-          return (
-            <input
-              key={key}
-              type="text"
-              name={key}
-              value={formData[key as keyof Project] || ""}
-              placeholder={key}
-              onChange={handleInputChange}
-              disabled={isLoading}
-            />
-          );
-        })}
-      </div>
-      <button onSubmit={() => handleSubmit}>Done</button>
-    </form>
+          })}
+        </div>
+        <button onSubmit={() => handleSubmit}>Done</button>
+      </form>
+    </Motion>
   );
 };
 
