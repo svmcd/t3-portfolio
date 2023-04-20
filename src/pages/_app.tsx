@@ -8,6 +8,7 @@ import { api } from "@component/utils/api";
 import "@component/styles/globals.css";
 
 import { Main } from "@component/components/Main";
+import { AnimatePresence } from "framer-motion";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -15,11 +16,13 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <ThemeProvider attribute="class">
-        <Main>
-          <Component {...pageProps} />
-        </Main>
-      </ThemeProvider>
+      <AnimatePresence mode="wait">
+        <ThemeProvider attribute="class">
+          <Main>
+            <Component {...pageProps} />
+          </Main>
+        </ThemeProvider>
+      </AnimatePresence>
     </SessionProvider>
   );
 };
