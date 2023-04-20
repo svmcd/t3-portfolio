@@ -7,6 +7,9 @@ const config = {
       colors: {
         'dark': '#0c0a09',
       },
+      animation: {
+        'spin-slow': 'spin 10s linear infinite',
+      }
     },
   },
   plugins: [],
