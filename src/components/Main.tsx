@@ -7,6 +7,7 @@ import { Sphere } from "@component/components/Sphere";
 import { Frame } from "@component/components/Frame";
 import { Sidebar } from "@component/components/Sidebar";
 import { ThemeToggle } from "@component/components/ThemeToggle";
+import { Motion } from "@component/components/Motion";
 
 export const Main: FC<PropsWithChildren> = ({ children }) => {
   const { theme } = useTheme();
