@@ -1,5 +1,4 @@
 import { signIn, signOut, useSession } from "next-auth/react";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Typography } from "@component/components/Typography";
 
@@ -10,7 +9,9 @@ export const Header = ({ theme }: Record<string, unknown>) => {
 
   useEffect(() => {
     const newLogoClass =
-      theme === "light" ? "mix-blend-multiply invert" : "mix-blend-screen";
+      theme === "light"
+        ? "mix-blend-multiply invert h-full"
+        : "mix-blend-screen h-full";
     setLogoClass(newLogoClass);
   }, [theme]);
 
@@ -18,7 +19,6 @@ export const Header = ({ theme }: Record<string, unknown>) => {
     setClickCount(clickCount + 1);
     if (clickCount === 2) {
       setClickCount(0);
-      console.log("hello");
       try {
         sessionData ? await signOut() : await signIn();
       } catch (error) {
@@ -29,16 +29,9 @@ export const Header = ({ theme }: Record<string, unknown>) => {
 
   return (
     <>
-      <div className=" select-none">
-        <Image
-          src="/logo.gif"
-          alt="gif"
-          height={200}
-          width={200}
-          className={logoClass}
-          onClick={() => void handleImageClick()}
-        />
-        <Typography variant="heading">Developer & Designer</Typography>
+      <div className="flex h-full select-none flex-col">
+        <Typography variant="title-big">Samed Polat</Typography>
+        <Typography variant="text-light">Developer & Designer</Typography>
       </div>
     </>
   );

@@ -33,14 +33,14 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
         </Canvas>
         <div className="solid absolute bottom-8 right-8 left-8 top-8 z-20 grid grid-cols-2 grid-rows-6 border border-stone-800  p-[20px] transition-colors duration-500 ease-linear dark:border-stone-400 dark:text-stone-200 ">
           {/* <div className="solid absolute bottom-8 right-8 left-8 top-8 z-20 grid grid-cols-2 grid-rows-6 border border-stone-800 bg-stone-200 p-[20px] transition-colors duration-500 ease-linear dark:border-stone-400 dark:bg-dark dark:text-stone-200 "> */}
-          <section className="col-span-2 row-span-1">
+          <section className="col-span-2 row-span-1 ">
             <Header theme={theme} />
           </section>
-          <section className="row-span-5">
+          <section className="row-span-5 ">
             <Sidebar />
           </section>
-          <section className="row-span-5 ">
-            <div className="scrollbar-hide fixed right-0 top-0  h-screen overflow-y-scroll py-48 pr-[53px]">
+          <section className="row-span-5  ">
+            <div className="scrollbar-hide fixed right-0 top-0  h-screen overflow-y-scroll py-[170px] pr-[53px]">
               {children}
             </div>
           </section>

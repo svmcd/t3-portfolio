@@ -13,11 +13,11 @@ export const Sidebar = () => {
       <Link href="/projects">
         <Typography variant="text">View projects</Typography>
       </Link>
-      <Link href="/contact">
-        <Typography variant="text">Contact</Typography>
-      </Link>
       <Link href="/experience">
         <Typography variant="text">Experience</Typography>
+      </Link>
+      <Link href="/contact">
+        <Typography variant="text">Contact</Typography>
       </Link>
       {sessionData ? (
         <Link href="/createProject">
