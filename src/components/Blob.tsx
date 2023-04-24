@@ -35,18 +35,18 @@ export const Blob = React.memo(() => {
     const clock = clockRef.current;
 
     if (currentMesh) {
-      uniforms.u_time.value = 0.4 * clock.getElapsedTime();
-      uniforms.u_intensity.value = lerp(uniforms.u_intensity.value, 0.05, 0.02);
+      uniforms.u_time.value = 0.15 * clock.getElapsedTime();
+      uniforms.u_intensity.value = lerp(uniforms.u_intensity.value, 0.5, 0.02);
     }
 
     const { camera } = state;
-    camera.position.x = lerp(camera.position.x, (mouse.x - 0.5) * 1, 0.1);
-    camera.position.y = lerp(camera.position.y, -(mouse.y - 0.5) * 1, 0.1);
+    camera.position.x = lerp(camera.position.x, (mouse.x - 0.5) * 0.5, 0.1);
+    camera.position.y = lerp(camera.position.y, -(mouse.y - 0.5) * 0.5, 0.1);
   });
 
   return (
     <mesh ref={mesh} scale={1} position={[0, 0, 0]}>
-      <icosahedronBufferGeometry args={[2, 10]} />
+      <icosahedronBufferGeometry args={[2, 20]} />
       <shaderMaterial
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}

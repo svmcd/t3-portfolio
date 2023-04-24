@@ -26,9 +26,8 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
         <Frame />
         <ThemeToggle />
         {/* <CustomCursor /> */}
-        {/* <Sphere theme={theme} /> */}
         <Canvas
-          className="pointer-events-none absolute inset-0 z-20"
+          className="pointer-events-none absolute inset-0 z-20 "
           camera={{ position: [0.0, 0.0, 5.0] }}
         >
           <Blob />
