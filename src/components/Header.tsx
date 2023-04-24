@@ -14,12 +14,16 @@ export const Header = ({ theme }: Record<string, unknown>) => {
     setLogoClass(newLogoClass);
   }, [theme]);
 
-  const handleImageClick = () => {
+  const handleImageClick = async () => {
     setClickCount(clickCount + 1);
     if (clickCount === 2) {
       setClickCount(0);
       console.log("hello");
-      sessionData ? signOut() : signIn();
+      try {
+        sessionData ? await signOut() : await signIn();
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
@@ -32,7 +36,7 @@ export const Header = ({ theme }: Record<string, unknown>) => {
           height={200}
           width={200}
           className={logoClass}
-          onClick={handleImageClick}
+          onClick={() => void handleImageClick()}
         />
         <Typography variant="heading">Developer & Designer</Typography>
       </div>
