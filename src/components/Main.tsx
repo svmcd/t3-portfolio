@@ -8,6 +8,7 @@ import { Blob } from "@component/components/Blob";
 import { Frame } from "@component/components/Frame";
 import { Sidebar } from "@component/components/Sidebar";
 import { ThemeToggle } from "@component/components/ThemeToggle";
+import { Canvas } from "@react-three/fiber";
 
 export const Main: FC<PropsWithChildren> = ({ children }) => {
   const { theme } = useTheme();
@@ -26,8 +27,14 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
         <ThemeToggle />
         {/* <CustomCursor /> */}
         {/* <Sphere theme={theme} /> */}
-        <Blob />
-        <div className="solid absolute bottom-8 right-8 left-8 top-8 z-20 grid grid-cols-2 grid-rows-6 border border-stone-800 bg-stone-200 p-[20px] transition-colors duration-500 ease-linear dark:border-stone-400 dark:bg-dark dark:text-stone-200 ">
+        <Canvas
+          className="pointer-events-none absolute inset-0 z-20"
+          camera={{ position: [0.0, 0.0, 4.0] }}
+        >
+          <Blob />
+        </Canvas>
+        <div className="solid absolute bottom-8 right-8 left-8 top-8 z-20 grid grid-cols-2 grid-rows-6 border border-stone-800  p-[20px] transition-colors duration-500 ease-linear dark:border-stone-400 dark:text-stone-200 ">
+          {/* <div className="solid absolute bottom-8 right-8 left-8 top-8 z-20 grid grid-cols-2 grid-rows-6 border border-stone-800 bg-stone-200 p-[20px] transition-colors duration-500 ease-linear dark:border-stone-400 dark:bg-dark dark:text-stone-200 "> */}
           <section className="col-span-2 row-span-1">
             <Header theme={theme} />
           </section>
