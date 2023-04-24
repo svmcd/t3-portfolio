@@ -3,7 +3,6 @@ import Head from "next/head";
 import { CustomCursor } from "@component/components/CustomCursor";
 import { useTheme } from "next-themes";
 import { Header } from "@component/components/Header";
-import { Sphere } from "@component/components/Sphere";
 import { Blob } from "@component/components/Blob";
 import { Frame } from "@component/components/Frame";
 import { Sidebar } from "@component/components/Sidebar";

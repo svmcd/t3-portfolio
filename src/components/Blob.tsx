@@ -11,7 +11,7 @@ export const Blob = React.memo(() => {
   const lerp = useMemo(() => MathUtils.lerp, []);
   const uniformsRef = useRef({
     u_time: { value: 0 },
-    u_intensity: { value: 0.3 },
+    u_intensity: { value: 1 },
   });
 
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -40,8 +40,8 @@ export const Blob = React.memo(() => {
     }
 
     const { camera } = state;
-    camera.position.x = lerp(camera.position.x, (mouse.x - 0.5) * 0.5, 0.1);
-    camera.position.y = lerp(camera.position.y, -(mouse.y - 0.5) * 0.5, 0.1);
+    camera.position.x = lerp(camera.position.x, (mouse.x - 0.5) * 0.75, 0.1);
+    camera.position.y = lerp(camera.position.y, -(mouse.y - 0.5) * 0.75, 0.1);
   });
 
   return (

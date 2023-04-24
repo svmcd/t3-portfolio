@@ -16,14 +16,16 @@ export const Sidebar = () => {
       <Link href="/contact">
         <Typography variant="text">Contact</Typography>
       </Link>
-      <Link href="/createProject">
-        <Typography variant="text">Create project</Typography>
+      <Link href="/experience">
+        <Typography variant="text">Experience</Typography>
       </Link>
-      <button
-        onClick={sessionData ? () => void signOut() : () => void signIn()}
-      >
-        {sessionData ? "Sign out" : "Sign in"}
-      </button>
+      {sessionData ? (
+        <Link href="/createProject">
+          <Typography variant="text">Create project</Typography>
+        </Link>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
