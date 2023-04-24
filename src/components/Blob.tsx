@@ -17,7 +17,7 @@ export const Blob = React.memo(() => {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const onMouseMove = (event) => {
+    const onMouseMove = (event: MouseEvent) => {
       setMouse({
         x: event.clientX / window.innerWidth,
         y: event.clientY / window.innerHeight,
