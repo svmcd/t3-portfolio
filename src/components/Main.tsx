@@ -20,7 +20,7 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
         npm install three @types/three @react-three/fiber
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="relative flex h-screen w-screen items-center justify-center overflow-hidden p-8">
+      <main className="relative flex h-screen w-screen items-center justify-center overflow-hidden">
         {/* <canvas className="absolute inset-0 z-20 h-full w-full animate-spin-slow rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 opacity-25" /> */}
         <Frame />
         <ThemeToggle />
@@ -31,7 +31,7 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
         >
           <Blob />
         </Canvas>
-        <div className="solid absolute bottom-8 right-8 left-8 top-8 z-20 grid grid-cols-2 grid-rows-6 border border-stone-800  p-[20px] transition-colors duration-500 ease-linear dark:border-stone-400 dark:text-stone-200 ">
+        <div className="solid absolute bottom-8 right-8 left-8 top-8 z-20 grid grid-cols-2 grid-rows-6 border border-stone-600  p-[30px] transition-colors duration-500 ease-linear dark:border-stone-400 dark:text-stone-200 ">
           {/* <div className="solid absolute bottom-8 right-8 left-8 top-8 z-20 grid grid-cols-2 grid-rows-6 border border-stone-800 bg-stone-200 p-[20px] transition-colors duration-500 ease-linear dark:border-stone-400 dark:bg-dark dark:text-stone-200 "> */}
           <section className="col-span-2 row-span-1 ">
             <Header theme={theme} />
@@ -40,7 +40,7 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
             <Sidebar />
           </section>
           <section className="row-span-5  ">
-            <div className="scrollbar-hide fixed right-0 top-0  h-screen overflow-y-scroll py-[170px] pr-[53px]">
+            <div className="scrollbar-hide fixed right-0 top-0  h-screen overflow-y-scroll py-[170px] pr-[63px]">
               {children}
             </div>
           </section>

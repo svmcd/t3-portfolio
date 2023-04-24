@@ -6,22 +6,32 @@ export const Sidebar = () => {
   const { data: sessionData } = useSession();
 
   return (
-    <div>
+    <div className="flex flex-col items-start gap-2">
       <Link href="/">
-        <Typography variant="text">Home</Typography>
+        <Typography variant="text" clickable>
+          Home
+        </Typography>
       </Link>
       <Link href="/projects">
-        <Typography variant="text">View projects</Typography>
+        <Typography variant="text" clickable>
+          View projects
+        </Typography>
       </Link>
       <Link href="/experience">
-        <Typography variant="text">Experience</Typography>
+        <Typography variant="text" clickable>
+          Experience
+        </Typography>
       </Link>
       <Link href="/contact">
-        <Typography variant="text">Contact</Typography>
+        <Typography variant="text" clickable>
+          Contact
+        </Typography>
       </Link>
       {sessionData ? (
         <Link href="/createProject">
-          <Typography variant="text">Create project</Typography>
+          <Typography variant="text" clickable>
+            Create project
+          </Typography>
         </Link>
       ) : (
         ""

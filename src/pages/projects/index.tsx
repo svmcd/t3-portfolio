@@ -15,7 +15,7 @@ const ProjectsPage: NextPage = () => {
 
   return (
     <Motion>
-      <div className="flex flex-col gap-12 text-right">
+      <div className="flex flex-col items-end gap-8 text-right">
         {projects?.map((project: Project) => (
           <Link
             key={project.id}
