@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import { MathUtils, Clock } from "three";
 import type { Mesh, BufferGeometry, Material } from "three";
@@ -14,7 +14,22 @@ export const Blob = React.memo(() => {
     u_intensity: { value: 0.3 },
   });
 
-  useFrame(() => {
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const onMouseMove = (event) => {
+      setMouse({
+        x: event.clientX / window.innerWidth,
+        y: event.clientY / window.innerHeight,
+      });
+    };
+    window.addEventListener("mousemove", onMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+    };
+  }, []);
+
+  useFrame((state) => {
     const currentMesh = mesh.current;
     const uniforms = uniformsRef.current;
     const clock = clockRef.current;
@@ -23,6 +38,10 @@ export const Blob = React.memo(() => {
       uniforms.u_time.value = 0.4 * clock.getElapsedTime();
       uniforms.u_intensity.value = lerp(uniforms.u_intensity.value, 0.05, 0.02);
     }
+
+    const { camera } = state;
+    camera.position.x = lerp(camera.position.x, (mouse.x - 0.5) * 1, 0.1);
+    camera.position.y = lerp(camera.position.y, -(mouse.y - 0.5) * 1, 0.1);
   });
 
   return (

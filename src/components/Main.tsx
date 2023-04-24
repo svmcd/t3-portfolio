@@ -29,7 +29,7 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
         {/* <Sphere theme={theme} /> */}
         <Canvas
           className="pointer-events-none absolute inset-0 z-20"
-          camera={{ position: [0.0, 0.0, 4.0] }}
+          camera={{ position: [0.0, 0.0, 5.0] }}
         >
           <Blob />
         </Canvas>
