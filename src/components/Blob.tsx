@@ -1,11 +1,12 @@
 import React, { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { MathUtils, Clock } from "three";
+import type { Mesh, BufferGeometry, Material } from "three";
 import { vertexShader } from "@component/shaders/vertexShader";
 import { fragmentShader } from "@component/shaders/fragmentShader";
 
 export const Blob = React.memo(() => {
-  const mesh = useRef();
+  const mesh = useRef<Mesh<BufferGeometry, Material | Material[]> | null>(null);
   const clockRef = useRef(new Clock());
   const lerp = useMemo(() => MathUtils.lerp, []);
   const uniformsRef = useRef({
