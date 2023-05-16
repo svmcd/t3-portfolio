@@ -15,12 +15,13 @@ export const Header = ({ theme }: Record<string, unknown>) => {
     setLogoClass(newLogoClass);
   }, [theme]);
 
-  const handleImageClick = async () => {
+  const handleImageClick = () => {
+    console.log("hi");
     setClickCount(clickCount + 1);
     if (clickCount === 2) {
       setClickCount(0);
       try {
-        sessionData ? await signOut() : await signIn();
+        sessionData ? void signOut() : void signIn();
       } catch (error) {
         console.log(error);
       }
@@ -29,7 +30,10 @@ export const Header = ({ theme }: Record<string, unknown>) => {
 
   return (
     <>
-      <div className="flex h-full select-none flex-col">
+      <div
+        className="flex h-full select-none flex-col"
+        onClick={handleImageClick}
+      >
         <Typography variant="title-big">Samed Polat</Typography>
         <Typography variant="text-light">Developer & Designer</Typography>
       </div>
