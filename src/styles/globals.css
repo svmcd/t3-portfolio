@@ -37,6 +37,16 @@ body {
   @apply cursor-none hover:cursor-none;
 } */
 
+dialog {
+  top: -100rem;
+  transition: all 3s;
+  display: block;
+}
+
+dialog[open] {
+  top: 0rem;
+}
+
 /* For Webkit-based browsers (Chrome, Safari and Opera) */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
