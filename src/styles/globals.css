@@ -39,12 +39,16 @@ body {
 
 dialog {
   top: -100rem;
-  transition: all 3s;
   display: block;
 }
 
 dialog[open] {
   top: 0rem;
+  transition: ease-in 1s;
+}
+
+dialog button {
+  transition: 1ms !important;
 }
 
 /* For Webkit-based browsers (Chrome, Safari and Opera) */
