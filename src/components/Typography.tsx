@@ -19,17 +19,18 @@ export const Typography: FC<TypographyProps> = ({
   switch (variant) {
     case "title-big":
       className = className =
-        "f-light text-5xl text-stone-900 dark:text-stone-300";
+        "f-light text-3xl  sm:text-5xl text-stone-900 dark:text-stone-300";
       break;
     case "title":
       className = className =
-        "f-light text-4xl text-stone-900 dark:text-stone-300";
+        "f-light text-2xl  sm:text-4xl text-stone-900 dark:text-stone-300";
       break;
     case "heading":
       className = "f-light text-lg text-stone-900 dark:text-stone-300";
       break;
     case "text":
-      className = "text-sm f-bold text-stone-900 dark:text-stone-300";
+      className =
+        "text-xs sm:text-sm f-bold text-stone-900 dark:text-stone-300";
       break;
     case "text-light":
       className = "text-sm f-light text-stone-900 dark:text-stone-300";

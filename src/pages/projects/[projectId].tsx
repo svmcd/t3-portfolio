@@ -30,7 +30,7 @@ const Project = () => {
     <Motion>
       <div
         key={foundProject?.id}
-        className="flex max-w-xs flex-col gap-2 overflow-x-hidden"
+        className="flex max-w-[12rem] flex-col gap-2 overflow-x-hidden sm:max-w-xs"
       >
         <Typography variant="title">{foundProject?.title}</Typography>
         <motion.div
