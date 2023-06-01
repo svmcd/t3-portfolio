@@ -61,3 +61,7 @@ dialog button {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.marquee {
+  overflow-x: hidden;
+}

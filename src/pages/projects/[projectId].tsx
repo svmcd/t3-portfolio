@@ -4,6 +4,7 @@ import { api } from "@component/utils/api";
 import { Motion } from "@component/components/Motion";
 import Link from "next/link";
 import { Typography } from "@component/components/Typography";
+import { motion } from "framer-motion";
 
 const Project = () => {
   const router = useRouter();
@@ -11,22 +12,39 @@ const Project = () => {
 
   const foundProject = projects?.find((p) => p.id === router.query.projectId);
 
+  const marqueeVariants = {
+    animate: {
+      x: [0, -888],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 20,
+          ease: "linear",
+        },
+      },
+    },
+  };
+
   return (
     <Motion>
-      <div key={foundProject?.id} className="flex max-w-xs flex-col gap-2">
+      <div
+        key={foundProject?.id}
+        className="flex max-w-xs flex-col gap-2 overflow-x-hidden"
+      >
         <Typography variant="title">{foundProject?.title}</Typography>
-        {foundProject?.imageUrl && (
-          <Image
-            src={foundProject?.imageUrl || ""}
-            alt={foundProject?.title || ""}
-            width={600}
-            height={600}
-          />
-        )}
-        <Typography variant="text">
-          {foundProject?.technologies?.toUpperCase().replace(/ /g, ", ") ??
-            "no technologies specified"}
-        </Typography>
+        <motion.div
+          className="whitespace-nowrap"
+          variants={marqueeVariants}
+          animate="animate"
+        >
+          <Typography variant="text">
+            {`${
+              foundProject?.technologies?.toUpperCase().replace(/ /g, " ") ??
+              "no technologies specified"
+            } `.repeat(5)}
+          </Typography>
+        </motion.div>
         <Typography variant="text">{foundProject?.content}</Typography>
         <Typography variant="heading">{foundProject?.date}</Typography>
         <div className="flex items-center justify-end gap-2">
