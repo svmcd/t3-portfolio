@@ -5,7 +5,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Motion>
-        <div className="flex h-full flex-col items-end justify-end">hello</div>
+        <div className="flex h-full flex-col items-end justify-end">home</div>
       </Motion>
     </>
   );

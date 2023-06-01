@@ -36,13 +36,13 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
           <section className="col-span-2 row-span-1 ">
             <Header />
           </section>
-          <section className="row-span-5 ">
+          <section className="row-span-5">
             <Sidebar />
           </section>
-          <section className="row-span-5  ">
-            <div className="scrollbar-hide fixed right-0 top-0  h-screen overflow-y-scroll py-[170px] pr-[63px]">
-              {children}
-            </div>
+          <section className="row-span-5 flex justify-end text-right">
+            {/* <div className="scrollbar-hide fixed right-0 top-0 h-screen overflow-y-scroll py-[170px] pr-[63px]"> */}
+            {children}
+            {/* </div> */}
           </section>
         </div>
       </main>

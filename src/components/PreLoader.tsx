@@ -7,6 +7,9 @@ export const PreLoader = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setPreLoaderClass("opacity-0");
+      setTimeout(() => {
+        setPreLoaderClass("hidden");
+      }, 500);
     }, 2000);
 
     return () => clearTimeout(timeout);
@@ -15,9 +18,10 @@ export const PreLoader = () => {
   return (
     <>
       <div
-        className={`absolute inset-0 z-40 flex items-center justify-center bg-stone-200 transition-opacity duration-500 dark:bg-dark ${preLoaderClass}`}
+        className={`absolute inset-0 z-40 flex flex-col items-center justify-center gap-2 bg-stone-200 transition-opacity duration-700 dark:bg-dark ${preLoaderClass}`}
       >
         <Typography variant="title">Samed Polat</Typography>
+        <Typography variant="text">( still under development )</Typography>
       </div>
     </>
   );

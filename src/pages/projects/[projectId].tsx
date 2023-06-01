@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { api } from "@component/utils/api";
 import { Motion } from "@component/components/Motion";
+import Link from "next/link";
+import { Typography } from "@component/components/Typography";
 
 const Project = () => {
   const router = useRouter();
@@ -11,8 +13,8 @@ const Project = () => {
 
   return (
     <Motion>
-      <div key={foundProject?.id}>
-        <div>{foundProject?.title}</div>
+      <div key={foundProject?.id} className="flex max-w-xs flex-col gap-2">
+        <Typography variant="title">{foundProject?.title}</Typography>
         {foundProject?.imageUrl && (
           <Image
             src={foundProject?.imageUrl || ""}
@@ -21,12 +23,25 @@ const Project = () => {
             height={600}
           />
         )}
-        <p>
+        <Typography variant="text">
           {foundProject?.technologies?.toUpperCase().replace(/ /g, ", ") ??
             "no technologies specified"}
-        </p>
-        <p>{foundProject?.content}</p>
-        <p>{foundProject?.date}</p>
+        </Typography>
+        <Typography variant="text">{foundProject?.content}</Typography>
+        <Typography variant="heading">{foundProject?.date}</Typography>
+        <div className="flex items-center justify-end gap-2">
+          {foundProject?.link1 && (
+            <Link target="_blank" href={foundProject.link1}>
+              <Typography variant="text">Live</Typography>
+            </Link>
+          )}
+          <span>•</span>
+          {foundProject?.link2 && (
+            <Link target="_blank" href={foundProject.link2}>
+              <Typography variant="text">GitHub</Typography>
+            </Link>
+          )}
+        </div>
       </div>
     </Motion>
   );
