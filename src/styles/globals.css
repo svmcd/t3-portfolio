@@ -37,6 +37,20 @@ body {
   @apply cursor-none hover:cursor-none;
 } */
 
+dialog {
+  top: -100rem;
+  display: block;
+}
+
+dialog[open] {
+  top: 0rem;
+  transition: ease-in 1s;
+}
+
+dialog button {
+  transition: 1ms !important;
+}
+
 /* For Webkit-based browsers (Chrome, Safari and Opera) */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
@@ -46,4 +60,8 @@ body {
 .scrollbar-hide {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.marquee {
+  overflow-x: hidden;
 }

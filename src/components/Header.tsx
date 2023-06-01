@@ -1,37 +1,36 @@
 import { signIn, signOut, useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Typography } from "@component/components/Typography";
 
-export const Header = ({ theme }: Record<string, unknown>) => {
+export const Header = () => {
   const { data: sessionData } = useSession();
-  const [logoClass, setLogoClass] = useState("");
+  const [signInButtonClass, setSignInButtonClass] = useState("hidden");
   const [clickCount, setClickCount] = useState(0);
 
-  useEffect(() => {
-    const newLogoClass =
-      theme === "light"
-        ? "mix-blend-multiply invert h-full"
-        : "mix-blend-screen h-full";
-    setLogoClass(newLogoClass);
-  }, [theme]);
-
-  const handleImageClick = async () => {
+  const handleImageClick = () => {
     setClickCount(clickCount + 1);
-    if (clickCount === 2) {
-      setClickCount(0);
-      try {
-        sessionData ? await signOut() : await signIn();
-      } catch (error) {
-        console.log(error);
-      }
+    if (clickCount === 8) {
+      setSignInButtonClass("absolute bottom-0 left-0");
+    }
+    if (clickCount > 8) {
+      setSignInButtonClass("hidden");
     }
   };
 
   return (
     <>
-      <div className="flex h-full select-none flex-col">
+      <div
+        className="flex h-full select-none flex-col"
+        onClick={handleImageClick}
+      >
         <Typography variant="title-big">Samed Polat</Typography>
         <Typography variant="text-light">Developer & Designer</Typography>
+        <div
+          onClick={() => (sessionData ? void signOut() : void signIn())}
+          className={signInButtonClass}
+        >
+          {sessionData ? "Sign out" : "Sign in"}
+        </div>
       </div>
     </>
   );

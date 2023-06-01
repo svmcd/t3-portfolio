@@ -13,9 +13,8 @@ generator client {
 
 model Project {
   id            String   @id @default(cuid())
-  imageUrl      String?
   title         String?
-  content       String? @db.VarChar(255)
+  content       String? @db.Text
   technologies  String?
   date          String?
   link1         String?
