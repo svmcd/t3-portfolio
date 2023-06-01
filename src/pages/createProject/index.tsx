@@ -10,7 +10,6 @@ type Project = RouterOutputs["projects"]["getAll"][number];
 const defaultFormData = {
   id: "",
   title: null,
-  imageUrl: null,
   content: null,
   technologies: null,
   date: null,

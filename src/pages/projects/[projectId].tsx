@@ -40,9 +40,11 @@ const Project = () => {
         >
           <Typography variant="text">
             {`${
-              foundProject?.technologies?.toUpperCase().replace(/ /g, " ") ??
+              foundProject?.technologies
+                ?.toUpperCase()
+                .replace(/ /g, "\u00A0 \u00A0 \u00A0") ??
               "no technologies specified"
-            } `.repeat(5)}
+            }\u00A0 \u00A0 \u00A0`.repeat(5)}
           </Typography>
         </motion.div>
         <Typography variant="text">{foundProject?.content}</Typography>

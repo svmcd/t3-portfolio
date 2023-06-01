@@ -13,7 +13,6 @@ export const projectsRouter = createTRPCRouter({
       z.object({
         title: z.string().optional(),
         content: z.string().optional(),
-        imageUrl: z.string().optional(),
         technologies: z.string().optional(),
         date: z.string().optional(),
         link1: z.string().optional(),
