@@ -21,7 +21,7 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
         npm install three @types/three @react-three/fiber
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="relative flex h-[calc(100dvh)] w-screen items-center justify-center overflow-hidden">
+      <main className="relative flex h-[calc(100dvh)] w-screen items-center justify-center overflow-hidden bg-red-500">
         <Frame />
         <ThemeToggle />
         {/* <CustomCursor /> */}
