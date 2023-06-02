@@ -65,7 +65,3 @@ dialog button {
 .marquee {
   overflow-x: hidden;
 }
-
-.max-h-mobile {
-  min-height: -webkit-fill-available;
-}
