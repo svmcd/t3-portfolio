@@ -10,7 +10,7 @@ const ProjectsPage: NextPage = () => {
   const { data: projects, isLoading } = api.projects.getAll.useQuery();
 
   if (isLoading) {
-    return <h1>loading</h1>;
+    return null;
   }
 
   if (!projects) {
