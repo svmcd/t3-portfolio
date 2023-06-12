@@ -2,12 +2,20 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { Typography } from "@component/components/Typography";
 import { useRouter } from "next/router";
-import { faSquareFull } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IoTriangleSharp } from "react-icons/io5";
+import { IoSquareSharp } from "react-icons/io5";
+
+export const Triangle = () => {
+  return <IoTriangleSharp className="rotate-90 text-[.5rem]" />;
+};
 
 export const Square = () => {
-  return <FontAwesomeIcon icon={faSquareFull} className="text-[.5rem]" />;
+  return <IoSquareSharp className="text-[.5rem]" />;
 };
+
+const initialClassName = "flex items-center gap-2";
+
+const activeClassName = "flex items-center gap-4 opacity-40";
 
 export const Sidebar = () => {
   const { data: sessionData } = useSession();
@@ -20,18 +28,19 @@ export const Sidebar = () => {
           variant="text"
           clickable
           className={
-            router.pathname == "/"
-              ? "mx-2 flex items-center gap-1 opacity-40"
-              : ""
+            router.pathname == "/" ? activeClassName : initialClassName
           }
         >
           {router.pathname == "/" ? (
             <>
-              <Square />
+              <Triangle />
               {"Home"}
             </>
           ) : (
-            "Home"
+            <>
+              <Square />
+              {"Home"}
+            </>
           )}
         </Typography>
       </Link>
@@ -40,18 +49,19 @@ export const Sidebar = () => {
           variant="text"
           clickable
           className={
-            router.pathname == "/projects"
-              ? "mx-2 flex items-center gap-1 opacity-40"
-              : ""
+            router.pathname == "/projects" ? activeClassName : initialClassName
           }
         >
           {router.pathname == "/projects" ? (
             <>
-              <Square />
+              <Triangle />
               {"Projects"}
             </>
           ) : (
-            "Projects"
+            <>
+              <Square />
+              {"Projects"}
+            </>
           )}
         </Typography>
       </Link>
@@ -61,17 +71,20 @@ export const Sidebar = () => {
           clickable
           className={
             router.pathname == "/experience"
-              ? "mx-2 flex items-center gap-1 opacity-40"
-              : ""
+              ? activeClassName
+              : initialClassName
           }
         >
           {router.pathname == "/experience" ? (
             <>
-              <Square />
+              <Triangle />
               {"Experience"}
             </>
           ) : (
-            "Experience"
+            <>
+              <Square />
+              {"Experience"}
+            </>
           )}
         </Typography>
       </Link>
@@ -80,18 +93,19 @@ export const Sidebar = () => {
           variant="text"
           clickable
           className={
-            router.pathname == "/contact"
-              ? "mx-2 flex items-center gap-1 opacity-40"
-              : ""
+            router.pathname == "/contact" ? activeClassName : initialClassName
           }
         >
           {router.pathname == "/contact" ? (
             <>
-              <Square />
+              <Triangle />
               {"Contact"}
             </>
           ) : (
-            "Contact"
+            <>
+              <Square />
+              {"Contact"}
+            </>
           )}
         </Typography>
       </Link>
@@ -102,17 +116,20 @@ export const Sidebar = () => {
             clickable
             className={
               router.pathname == "/createProject"
-                ? "mx-2 flex items-center gap-1"
-                : ""
+                ? activeClassName
+                : initialClassName
             }
           >
             {router.pathname == "/createProject" ? (
               <>
-                <Square />
+                <Triangle />
                 {"Create Project"}
               </>
             ) : (
-              "Create Project"
+              <>
+                <Square />
+                {"Create Project"}
+              </>
             )}
           </Typography>
         </Link>
