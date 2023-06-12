@@ -3,12 +3,19 @@ import Link from "next/link";
 import { Typography } from "@component/components/Typography";
 import { useRouter } from "next/router";
 import { IoTriangleSharp } from "react-icons/io5";
+import { IoSquareSharp } from "react-icons/io5";
 
-export const Square = () => {
+export const Triangle = () => {
   return <IoTriangleSharp className="rotate-90 text-[.5rem]" />;
 };
 
-const activeClassName = "mx-2 flex items-center gap-2 opacity-40";
+export const Square = () => {
+  return <IoSquareSharp className="text-[.5rem]" />;
+};
+
+const initialClassName = "flex items-center gap-2";
+
+const activeClassName = "flex items-center gap-4 opacity-40";
 
 export const Sidebar = () => {
   const { data: sessionData } = useSession();
@@ -20,15 +27,20 @@ export const Sidebar = () => {
         <Typography
           variant="text"
           clickable
-          className={router.pathname == "/" ? activeClassName : ""}
+          className={
+            router.pathname == "/" ? activeClassName : initialClassName
+          }
         >
           {router.pathname == "/" ? (
+            <>
+              <Triangle />
+              {"Home"}
+            </>
+          ) : (
             <>
               <Square />
               {"Home"}
             </>
-          ) : (
-            "Home"
           )}
         </Typography>
       </Link>
@@ -36,15 +48,20 @@ export const Sidebar = () => {
         <Typography
           variant="text"
           clickable
-          className={router.pathname == "/projects" ? activeClassName : ""}
+          className={
+            router.pathname == "/projects" ? activeClassName : initialClassName
+          }
         >
           {router.pathname == "/projects" ? (
+            <>
+              <Triangle />
+              {"Projects"}
+            </>
+          ) : (
             <>
               <Square />
               {"Projects"}
             </>
-          ) : (
-            "Projects"
           )}
         </Typography>
       </Link>
@@ -52,15 +69,22 @@ export const Sidebar = () => {
         <Typography
           variant="text"
           clickable
-          className={router.pathname == "/experience" ? activeClassName : ""}
+          className={
+            router.pathname == "/experience"
+              ? activeClassName
+              : initialClassName
+          }
         >
           {router.pathname == "/experience" ? (
+            <>
+              <Triangle />
+              {"Experience"}
+            </>
+          ) : (
             <>
               <Square />
               {"Experience"}
             </>
-          ) : (
-            "Experience"
           )}
         </Typography>
       </Link>
@@ -68,15 +92,20 @@ export const Sidebar = () => {
         <Typography
           variant="text"
           clickable
-          className={router.pathname == "/contact" ? activeClassName : ""}
+          className={
+            router.pathname == "/contact" ? activeClassName : initialClassName
+          }
         >
           {router.pathname == "/contact" ? (
+            <>
+              <Triangle />
+              {"Contact"}
+            </>
+          ) : (
             <>
               <Square />
               {"Contact"}
             </>
-          ) : (
-            "Contact"
           )}
         </Typography>
       </Link>
@@ -86,16 +115,21 @@ export const Sidebar = () => {
             variant="text"
             clickable
             className={
-              router.pathname == "/createProject" ? activeClassName : ""
+              router.pathname == "/createProject"
+                ? activeClassName
+                : initialClassName
             }
           >
             {router.pathname == "/createProject" ? (
               <>
-                <Square />
+                <Triangle />
                 {"Create Project"}
               </>
             ) : (
-              "Create Project"
+              <>
+                <Square />
+                {"Create Project"}
+              </>
             )}
           </Typography>
         </Link>
