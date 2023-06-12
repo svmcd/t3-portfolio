@@ -2,11 +2,11 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { Typography } from "@component/components/Typography";
 import { useRouter } from "next/router";
-import { faSquareFull } from "@fortawesome/free-solid-svg-icons";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Square = () => {
-  return <FontAwesomeIcon icon={faSquareFull} className="text-[.5rem]" />;
+  return <FontAwesomeIcon icon={faPlay} className="text-[.5rem]" />;
 };
 
 export const Sidebar = () => {
