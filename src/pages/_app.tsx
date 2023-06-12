@@ -3,8 +3,6 @@ import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
 
-import "@fortawesome/fontawesome-svg-core/styles.css";
-
 import { api } from "@component/utils/api";
 
 import "@component/styles/globals.css";

@@ -2,12 +2,13 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { Typography } from "@component/components/Typography";
 import { useRouter } from "next/router";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IoTriangleSharp } from "react-icons/io5";
 
 export const Square = () => {
-  return <FontAwesomeIcon icon={faPlay} className="text-[.5rem]" />;
+  return <IoTriangleSharp className="rotate-90 text-[.5rem]" />;
 };
+
+const activeClassName = "mx-2 flex items-center gap-2 opacity-40";
 
 export const Sidebar = () => {
   const { data: sessionData } = useSession();
@@ -19,11 +20,7 @@ export const Sidebar = () => {
         <Typography
           variant="text"
           clickable
-          className={
-            router.pathname == "/"
-              ? "mx-2 flex items-center gap-1 opacity-40"
-              : ""
-          }
+          className={router.pathname == "/" ? activeClassName : ""}
         >
           {router.pathname == "/" ? (
             <>
@@ -39,11 +36,7 @@ export const Sidebar = () => {
         <Typography
           variant="text"
           clickable
-          className={
-            router.pathname == "/projects"
-              ? "mx-2 flex items-center gap-1 opacity-40"
-              : ""
-          }
+          className={router.pathname == "/projects" ? activeClassName : ""}
         >
           {router.pathname == "/projects" ? (
             <>
@@ -59,11 +52,7 @@ export const Sidebar = () => {
         <Typography
           variant="text"
           clickable
-          className={
-            router.pathname == "/experience"
-              ? "mx-2 flex items-center gap-1 opacity-40"
-              : ""
-          }
+          className={router.pathname == "/experience" ? activeClassName : ""}
         >
           {router.pathname == "/experience" ? (
             <>
@@ -79,11 +68,7 @@ export const Sidebar = () => {
         <Typography
           variant="text"
           clickable
-          className={
-            router.pathname == "/contact"
-              ? "mx-2 flex items-center gap-1 opacity-40"
-              : ""
-          }
+          className={router.pathname == "/contact" ? activeClassName : ""}
         >
           {router.pathname == "/contact" ? (
             <>
@@ -101,9 +86,7 @@ export const Sidebar = () => {
             variant="text"
             clickable
             className={
-              router.pathname == "/createProject"
-                ? "mx-2 flex items-center gap-1"
-                : ""
+              router.pathname == "/createProject" ? activeClassName : ""
             }
           >
             {router.pathname == "/createProject" ? (
