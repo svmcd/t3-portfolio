@@ -3,6 +3,7 @@ import Link from "next/link";
 import { api, type RouterOutputs } from "@component/utils/api";
 import { Typography } from "@component/components/Typography";
 import { Motion } from "@component/components/Motion";
+import { ImSpinner8 } from "react-icons/im";
 
 type Project = RouterOutputs["projects"]["getAll"][number];
 
@@ -10,7 +11,7 @@ const ProjectsPage: NextPage = () => {
   const { data: projects, isLoading } = api.projects.getAll.useQuery();
 
   if (isLoading) {
-    return null;
+    return <ImSpinner8 className="animate-spin text-5xl" />;
   }
 
   if (!projects) {
