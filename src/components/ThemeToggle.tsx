@@ -5,7 +5,7 @@ export const ThemeToggle = () => {
   const { setTheme } = useTheme();
 
   return (
-    <div className="absolute bottom-1 left-8 z-40 flex gap-3">
+    <div className="absolute bottom-3 left-8 z-40 flex gap-3">
       <button
         onClick={() => setTheme("light")}
         className="flex flex-row items-center gap-[2px]"

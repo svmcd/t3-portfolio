@@ -49,10 +49,12 @@ export const Sidebar = () => {
           variant="text"
           clickable
           className={
-            router.pathname == "/projects" ? activeClassName : initialClassName
+            router.pathname.includes("/projects")
+              ? activeClassName
+              : initialClassName
           }
         >
-          {router.pathname == "/projects" ? (
+          {router.pathname.includes("/projects") ? (
             <>
               <Triangle />
               {"Projects"}
