@@ -5,6 +5,7 @@ import { Motion } from "@component/components/Motion";
 import Link from "next/link";
 import { Typography } from "@component/components/Typography";
 import { motion } from "framer-motion";
+import { RiArrowRightUpLine } from "react-icons/ri";
 
 const Project = () => {
   const router = useRouter();
@@ -55,14 +56,20 @@ const Project = () => {
         <div className="flex items-center justify-end gap-2">
           {(foundProject?.link1 && (
             <Link target="_blank" href={foundProject.link1}>
-              <Typography variant="text">Live</Typography>
+              <Typography variant="text" clickable className="flex">
+                Live
+                <RiArrowRightUpLine className="text-sm" />
+              </Typography>
             </Link>
           )) ??
             "n/a"}
           <span>•</span>
           {(foundProject?.link2 && (
             <Link target="_blank" href={foundProject.link2}>
-              <Typography variant="text">Code</Typography>
+              <Typography variant="text" clickable className="flex">
+                Code
+                <RiArrowRightUpLine className="text-sm" />
+              </Typography>
             </Link>
           )) ??
             "n/a"}
