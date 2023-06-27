@@ -70,3 +70,71 @@ dialog button {
 .marquee {
   overflow-x: hidden;
 }
+
+.loading {
+  color: transparent !important;
+  animation: heartbeat 4s ease-out infinite;
+  -webkit-animation: heartbeat 4s ease-out infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    text-shadow: 0 0 20px #fff;
+    opacity: 0;
+  }
+  20% {
+    text-shadow: 0 0 30px #fff;
+  }
+  25% {
+    opacity: 1;
+  }
+  40% {
+    text-shadow: 0 0 20px #fff;
+    opacity: 0.8;
+  }
+  60% {
+    text-shadow: 0 0 30px #fff;
+  }
+  65% {
+    opacity: 1;
+  }
+  80% {
+    text-shadow: 0 0 20px #fff;
+    opacity: 0.8;
+  }
+  100% {
+    text-shadow: 0 0 20px #fff;
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes heartbeat {
+  0% {
+    text-shadow: 0 0 20px #fff;
+    opacity: 0;
+  }
+  20% {
+    text-shadow: 0 0 30px #fff;
+  }
+  25% {
+    opacity: 1;
+  }
+  40% {
+    text-shadow: 0 0 20px #fff;
+    opacity: 0.8;
+  }
+  60% {
+    text-shadow: 0 0 30px #fff;
+  }
+  65% {
+    opacity: 1;
+  }
+  80% {
+    text-shadow: 0 0 20px #fff;
+    opacity: 0.8;
+  }
+  100% {
+    text-shadow: 0 0 20px #fff;
+    opacity: 0;
+  }
+}
