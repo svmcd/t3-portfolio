@@ -36,7 +36,8 @@ export const Typography: FC<TypographyProps> = ({
         "text-xs sm:text-sm f-bold text-stone-900 dark:text-stone-300";
       break;
     case "text-light":
-      baseClassName = "text-sm f-light text-stone-900 dark:text-stone-300";
+      baseClassName =
+        "text-[0.925rem] leading-5 f-light text-stone-900 dark:text-stone-300";
       break;
     default:
       baseClassName = "text-sm text-stone-900 dark:text-stone-300";

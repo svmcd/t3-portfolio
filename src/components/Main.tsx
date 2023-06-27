@@ -32,10 +32,10 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
         </Canvas>
         <div className="solid absolute top-6 bottom-6 left-6 right-6 z-20 grid grid-cols-2 grid-rows-6 border border-stone-600 p-[15px] transition-colors duration-500 ease-linear dark:border-stone-400  dark:text-stone-200 sm:p-[30px] md:bottom-8 md:right-8 md:left-8 md:top-8 ">
           <PreLoader />
-          <section className="col-span-2 row-span-1 ">
+          <section className="col-span-2 row-span-1">
             <Header />
           </section>
-          <section className="row-span-5">
+          <section className="row-span-5 ">
             <Sidebar />
           </section>
           <section className="row-span-5 flex justify-end text-right">

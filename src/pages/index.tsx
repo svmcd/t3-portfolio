@@ -9,13 +9,11 @@ const Home: NextPage = () => {
         <div className="flex w-full justify-end ">
           <div className="w-full md:w-1/2">
             <Typography variant="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              I am Samed Polat, a web developer based in Zaandam. My journey
+              into the world of web development began with my passion for
+              graphic design. I love the process of both designing and
+              developing websites, as it allows me to express my creativity
+              while constantly learning new things.
             </Typography>
           </div>
         </div>

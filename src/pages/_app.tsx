@@ -2,13 +2,13 @@ import { type AppType } from "next/app";
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
+import { AnimatePresence } from "framer-motion";
 
 import { api } from "@component/utils/api";
 
 import "@component/styles/globals.css";
 
 import { Main } from "@component/components/Main";
-import { AnimatePresence } from "framer-motion";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -16,13 +16,13 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <AnimatePresence mode="wait" initial={false}>
-        <ThemeProvider attribute="class">
-          <Main>
+      <ThemeProvider attribute="class">
+        <Main>
+          <AnimatePresence>
             <Component {...pageProps} />
-          </Main>
-        </ThemeProvider>
-      </AnimatePresence>
+          </AnimatePresence>
+        </Main>
+      </ThemeProvider>
     </SessionProvider>
   );
 };
