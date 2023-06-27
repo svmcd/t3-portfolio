@@ -5,7 +5,7 @@ import { Motion } from "@component/components/Motion";
 import Link from "next/link";
 import { Typography } from "@component/components/Typography";
 import { motion } from "framer-motion";
-import { RiArrowRightUpLine } from "react-icons/ri";
+import { RiArrowRightUpLine, RiArrowLeftLine } from "react-icons/ri";
 
 const Project = () => {
   const router = useRouter();
@@ -33,6 +33,16 @@ const Project = () => {
         key={foundProject?.id}
         className="flex max-w-[12rem] flex-col gap-2 overflow-x-hidden sm:max-w-xs"
       >
+        <Link href="/projects">
+          <Typography
+            variant="text-light"
+            clickable
+            className="flex items-center justify-end gap-1"
+          >
+            <RiArrowLeftLine></RiArrowLeftLine>
+            Back to all projects
+          </Typography>
+        </Link>
         <Typography variant="title">{foundProject?.title}</Typography>
         <motion.div
           className="whitespace-nowrap"

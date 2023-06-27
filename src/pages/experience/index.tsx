@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Experience: NextPage = () => {
   return (
-    <div className="scrollbar-hide fixed right-0 top-0 h-screen overflow-y-scroll py-[11.5%] pr-[40px] sm:pr-[63px]">
+    <div className="scrollbar-hide fixed right-0 top-0 h-screen overflow-y-scroll py-[8.1rem] pr-[40px] sm:pr-[63px] xl:py-[10rem] 2xl:py-[12rem]">
       <Motion>
         <div className="flex flex-col items-end gap-8 text-right">
           <Link href={`/`} className=" duration-300 hover:opacity-40">

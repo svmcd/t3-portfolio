@@ -3,7 +3,6 @@ import Link from "next/link";
 import { api, type RouterOutputs } from "@component/utils/api";
 import { Typography } from "@component/components/Typography";
 import { Motion } from "@component/components/Motion";
-import { ImSpinner8 } from "react-icons/im";
 
 type Project = RouterOutputs["projects"]["getAll"][number];
 
@@ -23,7 +22,7 @@ const ProjectsPage: NextPage = () => {
     ));
 
     return (
-      <div className="scrollbar-hide loading fixed right-0 top-0 h-screen overflow-y-scroll px-10 py-[11.5%] pr-[40px] sm:pr-[63px]">
+      <div className="scrollbar-hide fixed right-0 top-0 h-screen overflow-y-scroll py-[8.1rem] pr-[40px] sm:pr-[63px] xl:py-[10rem] 2xl:py-[12rem]">
         <Motion>
           <div className="loading flex flex-col items-end gap-8 text-right">
             {skeletonProjects}
@@ -38,7 +37,7 @@ const ProjectsPage: NextPage = () => {
   }
 
   return (
-    <div className="scrollbar-hide fixed right-0 top-0 h-screen overflow-y-scroll py-[11.5%] pr-[40px] sm:pr-[63px]">
+    <div className="scrollbar-hide fixed right-0 top-0 h-screen overflow-y-scroll py-[8.1rem] pr-[40px] sm:pr-[63px] xl:py-[10rem] 2xl:py-[12rem]">
       <Motion>
         <div className="flex flex-col items-end gap-8 text-right">
           {projects?.map((project: Project) => (
