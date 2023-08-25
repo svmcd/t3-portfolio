@@ -71,8 +71,9 @@ const Project = () => {
                 <RiArrowRightUpLine className="text-sm" />
               </Typography>
             </Link>
-          )) ??
-            "n/a"}
+          )) ?? (
+            <Typography variant="text">Live demo not available yet</Typography>
+          )}
           <span>•</span>
           {(foundProject?.link2 && (
             <Link target="_blank" href={foundProject.link2}>
