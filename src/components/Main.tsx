@@ -24,21 +24,21 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
         <Frame />
         <ThemeToggle />
         {/* <CustomCursor /> */}
-        <Canvas
+        {/* <Canvas
           className="pointer-events-none absolute inset-0 z-20"
           camera={{ position: [0.0, 0.0, 5.0] }}
         >
           <Blob />
-        </Canvas>
-        <div className="solid absolute top-6 bottom-6 left-6 right-6 z-20 grid grid-cols-2 grid-rows-6 border border-stone-600 p-[15px] transition-colors duration-500 ease-linear dark:border-stone-400  dark:text-stone-200 sm:p-[30px] md:bottom-8 md:right-8 md:left-8 md:top-8 ">
+        </Canvas> */}
+        <div className="solid absolute top-6 bottom-6 left-6 right-6 z-20 grid grid-cols-4 grid-rows-6 border border-stone-600 p-[15px] transition-colors duration-500 ease-linear dark:border-stone-400  dark:text-stone-200 sm:p-[30px] md:bottom-8 md:right-8 md:left-8 md:top-8 ">
           <PreLoader />
-          <section className="col-span-2 row-span-1">
+          <section className="col-span-4 row-span-1">
             <Header />
           </section>
-          <section className="z-10 row-span-5">
+          <section className="z-10 col-span-1 row-span-5 ">
             <Sidebar />
           </section>
-          <section className="row-span-5 flex justify-end text-right">
+          <section className="col-span-3 row-span-5 flex justify-end text-right">
             {/* <div className="scrollbar-hide fixed right-0 top-0 h-screen overflow-y-scroll py-[170px] pr-[63px]"> */}
             {children}
             {/* </div> */}
