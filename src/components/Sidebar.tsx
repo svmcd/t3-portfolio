@@ -13,16 +13,16 @@ export const Square = () => {
   return <IoSquareSharp className="text-[.5rem]" />;
 };
 
-const initialClassName = "flex items-center gap-2";
+const initialClassName = "flex items-center gap-2 z-50";
 
-const activeClassName = "flex items-center gap-4 opacity-40";
+const activeClassName = "flex items-center gap-4 opacity-40 z-50";
 
 export const Sidebar = () => {
   const { data: sessionData } = useSession();
   const router = useRouter();
 
   return (
-    <div className="flex flex-col items-start gap-2">
+    <div className=" flex flex-col items-start gap-2 bg-blend-overlay ">
       <Link href="/">
         <Typography
           variant="text"
