@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { api, type RouterOutputs } from "@component/utils/api";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
-import { Motion } from "@component/components/Motion";
+import { MotionParent } from "@component/components/Motion";
 
 type Project = RouterOutputs["projects"]["getAll"][number];
 
@@ -52,7 +52,7 @@ const CreateProject: NextPage = () => {
   };
 
   return (
-    <Motion>
+    <MotionParent>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-1 text-black">
           {Object.entries(formData).map(([key]) => {
@@ -100,7 +100,7 @@ const CreateProject: NextPage = () => {
         </div>
         <button onSubmit={() => handleSubmit}>Done</button>
       </form>
-    </Motion>
+    </MotionParent>
   );
 };
 
