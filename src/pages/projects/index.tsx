@@ -2,7 +2,7 @@ import { type NextPage } from "next";
 import Link from "next/link";
 import { api, type RouterOutputs } from "@component/utils/api";
 import { Typography } from "@component/components/Typography";
-import { Motion } from "@component/components/Motion";
+import { MotionChild, MotionParent } from "@component/components/Motion";
 
 type Project = RouterOutputs["projects"]["getAll"][number];
 
@@ -23,11 +23,9 @@ const ProjectsPage: NextPage = () => {
 
     return (
       <div className="scrollbar-hide fixed right-0 top-0 h-screen overflow-y-scroll py-[8.1rem] pr-[40px] sm:pr-[63px] xl:py-[10rem] 2xl:py-[12rem]">
-        <Motion>
-          <div className="loading flex flex-col items-end gap-8 text-right">
-            {skeletonProjects}
-          </div>
-        </Motion>
+        <div className="loading flex flex-col items-end gap-8 text-right">
+          {skeletonProjects}
+        </div>
       </div>
     );
   }
@@ -38,20 +36,24 @@ const ProjectsPage: NextPage = () => {
 
   return (
     <div className="scrollbar-hide fixed right-0 top-0 h-screen overflow-y-scroll py-[8.1rem] pr-[40px] sm:pr-[63px] xl:py-[10rem] 2xl:py-[12rem]">
-      <Motion>
+      <MotionParent>
         <div className="flex flex-col items-end gap-8 text-right">
           {projects?.map((project: Project) => (
-            <Link
-              key={project.id}
-              href={`/projects/${project.id}`}
-              className="bg-blend-screen duration-300 hover:opacity-40"
-            >
-              <Typography variant="title">{project.title}</Typography>
-              <Typography variant="text">{project.date}</Typography>
-            </Link>
+            <>
+              <MotionChild>
+                <Link
+                  key={project.id}
+                  href={`/projects/${project.id}`}
+                  className="bg-blend-screen duration-300 hover:opacity-40"
+                >
+                  <Typography variant="title">{project.title}</Typography>
+                  <Typography variant="text">{project.date}</Typography>
+                </Link>
+              </MotionChild>
+            </>
           ))}
         </div>
-      </Motion>
+      </MotionParent>
     </div>
   );
 };

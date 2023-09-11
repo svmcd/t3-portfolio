@@ -1,20 +1,51 @@
 import { motion } from "framer-motion";
 import type { FC, PropsWithChildren } from "react";
-import { useRouter } from "next/router";
 
-export const Motion: FC<PropsWithChildren> = ({ children }) => {
-  const router = useRouter();
+export const MotionParent: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
       <motion.div
-        key={router.pathname}
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.75 }}
+        variants={childrenContainerVariants}
+        initial="initial"
+        animate="animate"
       >
         {children}
       </motion.div>
     </>
   );
+};
+
+export const MotionChild: FC<PropsWithChildren> = ({ children }) => {
+  return (
+    <>
+      <motion.div variants={childrenVariants}>{children}</motion.div>
+    </>
+  );
+};
+
+const childrenContainerVariants = {
+  inital: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.25,
+    },
+  },
+};
+
+const childrenVariants = {
+  initial: {
+    opacity: 0,
+    x: 200,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      ease: [0.43, 0.13, 0.23, 0.96],
+      duration: 0.5,
+    },
+  },
 };
