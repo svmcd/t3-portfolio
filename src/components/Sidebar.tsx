@@ -1,143 +1,64 @@
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { Typography } from "@component/components/Typography";
+import { MotionParent, MotionChild } from "./Motion";
 import { useRouter } from "next/router";
-import { IoTriangleSharp } from "react-icons/io5";
-import { IoSquareSharp } from "react-icons/io5";
+import { IoTriangleSharp, IoSquareSharp } from "react-icons/io5";
 
-export const Triangle = () => {
-  return <IoTriangleSharp className="rotate-90 text-[.5rem]" />;
-};
+interface MenuItemProps {
+  path: string;
+  label: string;
+  isActive: boolean;
+}
 
-export const Square = () => {
-  return <IoSquareSharp className="text-[.5rem]" />;
-};
-
-const initialClassName = "flex items-center gap-2 z-50";
-
-const activeClassName = "flex items-center gap-4 opacity-40 z-50";
+const MenuItem: React.FC<MenuItemProps> = ({ path, label, isActive }) => (
+  <Link href={path}>
+    <Typography
+      variant="text"
+      clickable
+      className={`flex items-center gap-${isActive ? 4 : 2} z-50 ${
+        isActive ? "opacity-40" : ""
+      }`}
+    >
+      {isActive ? (
+        <IoTriangleSharp className="rotate-90 text-[.5rem]" />
+      ) : (
+        <IoSquareSharp className="text-[.5rem]" />
+      )}
+      {label}
+    </Typography>
+  </Link>
+);
 
 export const Sidebar = () => {
   const { data: sessionData } = useSession();
   const router = useRouter();
 
+  const menuItems = [
+    { path: "/", label: "Home" },
+    { path: "/projects", label: "Projects" },
+    { path: "/experience", label: "Experience" },
+    { path: "/contact", label: "Contact" },
+  ];
+
+  if (sessionData) {
+    menuItems.push({ path: "/createProject", label: "Create Project" });
+  }
+
   return (
-    <div className=" flex flex-col items-start gap-2 bg-blend-overlay ">
-      <Link href="/">
-        <Typography
-          variant="text"
-          clickable
-          className={
-            router.pathname == "/" ? activeClassName : initialClassName
-          }
-        >
-          {router.pathname == "/" ? (
-            <>
-              <Triangle />
-              {"Home"}
-            </>
-          ) : (
-            <>
-              <Square />
-              {"Home"}
-            </>
-          )}
-        </Typography>
-      </Link>
-      <Link href="/projects">
-        <Typography
-          variant="text"
-          clickable
-          className={
-            router.pathname.includes("/projects")
-              ? activeClassName
-              : initialClassName
-          }
-        >
-          {router.pathname.includes("/projects") ? (
-            <>
-              <Triangle />
-              {"Projects"}
-            </>
-          ) : (
-            <>
-              <Square />
-              {"Projects"}
-            </>
-          )}
-        </Typography>
-      </Link>
-      <Link href="/experience">
-        <Typography
-          variant="text"
-          clickable
-          className={
-            router.pathname == "/experience"
-              ? activeClassName
-              : initialClassName
-          }
-        >
-          {router.pathname == "/experience" ? (
-            <>
-              <Triangle />
-              {"Experience"}
-            </>
-          ) : (
-            <>
-              <Square />
-              {"Experience"}
-            </>
-          )}
-        </Typography>
-      </Link>
-      <Link href="/contact">
-        <Typography
-          variant="text"
-          clickable
-          className={
-            router.pathname == "/contact" ? activeClassName : initialClassName
-          }
-        >
-          {router.pathname == "/contact" ? (
-            <>
-              <Triangle />
-              {"Contact"}
-            </>
-          ) : (
-            <>
-              <Square />
-              {"Contact"}
-            </>
-          )}
-        </Typography>
-      </Link>
-      {sessionData ? (
-        <Link href="/createProject">
-          <Typography
-            variant="text"
-            clickable
-            className={
-              router.pathname == "/createProject"
-                ? activeClassName
-                : initialClassName
-            }
-          >
-            {router.pathname == "/createProject" ? (
-              <>
-                <Triangle />
-                {"Create Project"}
-              </>
-            ) : (
-              <>
-                <Square />
-                {"Create Project"}
-              </>
-            )}
-          </Typography>
-        </Link>
-      ) : (
-        ""
-      )}
-    </div>
+    <MotionParent>
+      <div className="flex flex-col items-start gap-2 bg-blend-overlay">
+        {menuItems.map((item) => (
+          <>
+            <MenuItem
+              key={item.path}
+              path={item.path}
+              label={item.label}
+              isActive={router.pathname === item.path}
+            />
+          </>
+        ))}
+      </div>
+    </MotionParent>
   );
 };

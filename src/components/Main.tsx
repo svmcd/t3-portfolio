@@ -1,5 +1,6 @@
 import type { FC, PropsWithChildren } from "react";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import { CustomCursor } from "@component/components/CustomCursor";
 import { useTheme } from "next-themes";
 import { Header } from "@component/components/Header";
@@ -9,9 +10,19 @@ import { Sidebar } from "@component/components/Sidebar";
 import { ThemeToggle } from "@component/components/ThemeToggle";
 import { Canvas } from "@react-three/fiber";
 import { PreLoader } from "./PreLoader";
+import { PRE_LOADER_TIME } from "@component/utils/constants";
 
 export const Main: FC<PropsWithChildren> = ({ children }) => {
   const { theme } = useTheme();
+  const [showSection, setShowSection] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSection(true);
+    }, PRE_LOADER_TIME);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -32,13 +43,23 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
         </Canvas>
         <div className="solid absolute top-6 bottom-6 left-6 right-6 z-20 grid grid-cols-4 grid-rows-6 border border-stone-600 p-[15px] transition-colors duration-500 ease-linear dark:border-stone-400  dark:text-stone-200 sm:p-[30px] md:bottom-8 md:right-8 md:left-8 md:top-8 ">
           <PreLoader />
-          <section className="col-span-4 row-span-1">
+          <section
+            className={`${showSection ? "" : "hidden"} col-span-4 row-span-1`}
+          >
             <Header />
           </section>
-          <section className="z-10 col-span-1 row-span-5 ">
+          <section
+            className={`${
+              showSection ? "" : "hidden"
+            } z-10 col-span-1 row-span-5 `}
+          >
             <Sidebar />
           </section>
-          <section className="col-span-3 row-span-5 flex justify-end text-right">
+          <section
+            className={` ${
+              showSection ? "" : "hidden"
+            } col-span-3 row-span-5 flex justify-end text-right`}
+          >
             {/* <div className="scrollbar-hide fixed right-0 top-0 h-screen overflow-y-scroll py-[170px] pr-[63px]"> */}
             {children}
             {/* </div> */}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Typography } from "./Typography";
+import { PRE_LOADER_TIME } from "@component/utils/constants";
 
 export const PreLoader = () => {
   const [preLoaderClass, setPreLoaderClass] = useState("opacity-100");
@@ -10,7 +11,7 @@ export const PreLoader = () => {
       setTimeout(() => {
         setPreLoaderClass("hidden");
       }, 500);
-    }, 2000);
+    }, PRE_LOADER_TIME);
 
     return () => clearTimeout(timeout);
   }, []);

@@ -6,12 +6,14 @@ import Link from "next/link";
 import { Typography } from "@component/components/Typography";
 import { motion } from "framer-motion";
 import { RiArrowRightUpLine, RiArrowLeftLine } from "react-icons/ri";
+import { experiences } from "@component/data/experiences";
 
-const Project = () => {
+const Experience = () => {
   const router = useRouter();
-  const { data: projects } = api.projects.getAll.useQuery();
 
-  const foundProject = projects?.find((p) => p.id === router.query.projectId);
+  const foundExperience = experiences?.find(
+    (p) => p.id === router.query.experienceId
+  );
 
   const marqueeVariants = {
     animate: {
@@ -31,20 +33,20 @@ const Project = () => {
     <MotionParent>
       <MotionChild>
         <div
-          key={foundProject?.id}
+          key={foundExperience?.id}
           className="flex max-w-[12rem] flex-col gap-2 overflow-x-hidden sm:max-w-xs"
         >
-          <Link href="/projects">
+          <Link href="/experience">
             <Typography
               variant="text-light"
               clickable
               className="flex items-center justify-end gap-1"
             >
               <RiArrowLeftLine />
-              Back to all projects
+              Back to all experiences
             </Typography>
           </Link>
-          <Typography variant="title">{foundProject?.title}</Typography>
+          <Typography variant="title">{foundExperience?.title}</Typography>
           <motion.div
             className="whitespace-nowrap"
             variants={marqueeVariants}
@@ -52,7 +54,7 @@ const Project = () => {
           >
             <Typography variant="text">
               {`${
-                foundProject?.technologies
+                foundExperience?.technologies
                   ?.toUpperCase()
                   .replace(/ /g, "\u00A0 \u00A0 \u00A0") ??
                 "no technologies specified"
@@ -60,38 +62,14 @@ const Project = () => {
             </Typography>
           </motion.div>
           <Typography variant="text">
-            {foundProject?.content ??
+            {foundExperience?.content ??
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
           </Typography>
-          <Typography variant="heading">{foundProject?.date}</Typography>
-          <div className="flex items-center justify-end gap-2">
-            {(foundProject?.link1 && (
-              <Link target="_blank" href={foundProject.link1}>
-                <Typography variant="text" clickable className="flex">
-                  Live
-                  <RiArrowRightUpLine className="text-sm" />
-                </Typography>
-              </Link>
-            )) ?? (
-              <Typography variant="text">
-                Live demo not available yet
-              </Typography>
-            )}
-            <span>•</span>
-            {(foundProject?.link2 && (
-              <Link target="_blank" href={foundProject.link2}>
-                <Typography variant="text" clickable className="flex">
-                  Code
-                  <RiArrowRightUpLine className="text-sm" />
-                </Typography>
-              </Link>
-            )) ??
-              "n/a"}
-          </div>
+          <Typography variant="heading">{foundExperience?.date}</Typography>
         </div>
       </MotionChild>
     </MotionParent>
   );
 };
 
-export default Project;
+export default Experience;
