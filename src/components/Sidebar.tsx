@@ -16,7 +16,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ path, label, isActive }) => (
     <Typography
       variant="text"
       clickable
-      className={`flex items-center gap-${isActive ? 4 : 2} z-50 ${
+      className={`flex items-center gap-${isActive ? "4" : "2"} z-50 ${
         isActive ? "opacity-40" : ""
       }`}
     >
