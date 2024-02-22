@@ -54,8 +54,9 @@ const Experience = () => {
           >
             <Typography variant="text">
               {`${
-                foundExperience?.technologies !==
-                  ""?.toUpperCase().replace(/ /g, "\u00A0 \u00A0 \u00A0") ??
+                foundExperience?.technologies
+                  ?.toUpperCase()
+                  .replace(/ /g, "\u00A0 \u00A0 \u00A0") ??
                 "no technologies specified"
               }\u00A0 \u00A0 \u00A0`.repeat(10)}
             </Typography>

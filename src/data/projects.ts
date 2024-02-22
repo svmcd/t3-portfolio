@@ -1,3 +1,11 @@
+import ra1 from '../../public/robinass/1.png'
+import ra2 from '../../public/robinass/2.png'
+import ra3 from '../../public/robinass/3.png'
+import ra4 from '../../public/robinass/4.png'
+import ra5 from '../../public/robinass/5.png'
+import ra6 from '../../public/robinass/6.png'
+import ra7 from '../../public/robinass/7.png'
+
 export const projects = [
     {
         id: "robinass",
@@ -5,8 +13,9 @@ export const projects = [
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "adobexd",
         date: "2024-02",
-        link1: "",
-        link2: ""
+        link1: "s",
+        link2: "s",
+        img: [ra1, ra2, ra3, ra4, ra5, ra6, ra7]
     },
     {
         id: "ez",
