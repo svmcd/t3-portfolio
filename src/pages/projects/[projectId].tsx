@@ -6,10 +6,11 @@ import Link from "next/link";
 import { Typography } from "@component/components/Typography";
 import { motion } from "framer-motion";
 import { RiArrowRightUpLine, RiArrowLeftLine } from "react-icons/ri";
+import { projects } from "@component/data/projects";
 
 const Project = () => {
   const router = useRouter();
-  const { data: projects } = api.projects.getAll.useQuery();
+  // const { data: projects } = api.projects.getAll.useQuery();
 
   const foundProject = projects?.find((p) => p.id === router.query.projectId);
 
@@ -65,28 +66,23 @@ const Project = () => {
           </Typography>
           <Typography variant="heading">{foundProject?.date}</Typography>
           <div className="flex items-center justify-end gap-2">
-            {(foundProject?.link1 && (
+            {foundProject?.link1 && (
               <Link target="_blank" href={foundProject.link1}>
                 <Typography variant="text" clickable className="flex">
                   Live
                   <RiArrowRightUpLine className="text-sm" />
                 </Typography>
               </Link>
-            )) ?? (
-              <Typography variant="text">
-                Live demo not available yet
-              </Typography>
             )}
-            <span>•</span>
-            {(foundProject?.link2 && (
+            {foundProject?.link1 && foundProject?.link2 && <span>•</span>}
+            {foundProject?.link2 && (
               <Link target="_blank" href={foundProject.link2}>
                 <Typography variant="text" clickable className="flex">
                   Code
                   <RiArrowRightUpLine className="text-sm" />
                 </Typography>
               </Link>
-            )) ??
-              "n/a"}
+            )}
           </div>
         </div>
       </MotionChild>

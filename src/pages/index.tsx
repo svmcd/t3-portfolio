@@ -10,9 +10,9 @@ const Home: NextPage = () => {
           <div className="w-full md:w-1/2">
             <MotionChild>
               <Typography variant="text">
-                I am Samed Polat, a web developer based in Zaandam. My journey
-                into the world of web development began with my passion for
-                graphic design. I love the process of both designing and
+                I am Samed Polat, a frontend developer based in Zaandam. My
+                journey into the world of web development began with my passion
+                for graphic design. I love the process of both designing and
                 developing websites, as it allows me to express my creativity
                 while constantly learning new things.
               </Typography>
