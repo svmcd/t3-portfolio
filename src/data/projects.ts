@@ -8,13 +8,31 @@ import ra7 from '../../public/robinass/7.png'
 
 export const projects = [
     {
+        id: "polatdigital",
+        title: "Polat Digital",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        technologies: "nextjs typescript tailwind",
+        date: "in progress",
+        link1: "https://polatdigital.com/",
+        link2: "",
+    },
+    {
+        id: "cardealership",
+        title: "Car Dealership Prototype",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        technologies: "nextjs typescript tailwind sanity seo",
+        date: "in progress",
+        link1: "",
+        link2: "",
+    },
+    {
         id: "robinass",
         title: "Robin Assistant",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        technologies: "adobexd",
-        date: "2024-02",
-        link1: "s",
-        link2: "s",
+        technologies: "vuejs ionic adobexd",
+        date: "in progress",
+        link1: "",
+        link2: "",
         img: [ra1, ra2, ra3, ra4, ra5, ra6, ra7]
     },
     {
