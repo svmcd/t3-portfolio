@@ -68,21 +68,7 @@ const Project = () => {
             {foundProject?.content ??
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
           </Typography>
-          <button className="grid grid-cols-2 place-items-end gap-x-4 self-end overflow-hidden ">
-            {foundProject?.img?.map((image, index) => (
-              <div key={index} className="relative">
-                <Image
-                  className={`${
-                    index !== imgIndex && index !== imgIndex2 ? "hidden" : ""
-                  }`}
-                  src={image}
-                  alt={`Project Image ${index + 1}`}
-                  width={75}
-                />
-                <div className="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
-              </div>
-            ))}
-          </button>
+          <button className="grid grid-cols-2 place-items-end gap-x-4 self-end overflow-hidden "></button>
           <div className="flex items-center justify-end gap-2">
             {foundProject?.link1 && (
               <Link target="_blank" href={foundProject.link1}>

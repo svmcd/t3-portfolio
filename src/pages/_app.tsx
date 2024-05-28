@@ -3,6 +3,7 @@ import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
 import { AnimatePresence } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react";
 
 import { api } from "@component/utils/api";
 
@@ -20,6 +21,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
         <Main>
           <AnimatePresence>
             <Component {...pageProps} />
+            <Analytics />
           </AnimatePresence>
         </Main>
       </ThemeProvider>

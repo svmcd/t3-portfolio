@@ -8,21 +8,30 @@ import ra7 from '../../public/robinass/7.png'
 
 export const projects = [
     {
+        id: "orientalis",
+        title: "Orientalis Amsterdam",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        technologies: "nextjs typescript scss",
+        date: "In progress",
+        link1: "https://orientalisamsterdam.com/",
+        link2: "",
+    },
+    {
         id: "polatdigital",
         title: "Polat Digital",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "nextjs typescript tailwind",
-        date: "in progress",
+        date: "May 2024",
         link1: "https://polatdigital.com/",
         link2: "",
     },
     {
-        id: "cardealership",
-        title: "Car Dealership Prototype",
+        id: "soundstories",
+        title: "SoundStories",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        technologies: "nextjs typescript tailwind sanity seo",
-        date: "in progress",
-        link1: "",
+        technologies: "nextjs typescript scss firebase",
+        date: "May 2024",
+        link1: "https://soundstories.nl/",
         link2: "",
     },
     {
@@ -30,7 +39,7 @@ export const projects = [
         title: "Robin Assistant",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "vuejs ionic adobexd",
-        date: "in progress",
+        date: "Jan 2024",
         link1: "",
         link2: "",
         img: [ra1, ra2, ra3, ra4, ra5, ra6, ra7]
@@ -40,7 +49,7 @@ export const projects = [
         title: "EnergieZichtbaar",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "HTML JS CSS FIGMA",
-        date: "2023-12",
+        date: "Dec 2023",
         link1: "https://energiezichtbaar.nl/",
         link2: ""
     },
@@ -49,7 +58,7 @@ export const projects = [
         title: "Steuntje",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "reactnative typescript xcode androidstudio figma",
-        date: "2023-11",
+        date: "Nov 2023",
         link1: "",
         link2: ""
     },
@@ -58,7 +67,7 @@ export const projects = [
         title: "Drupple",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "reactnative expo",
-        date: "2023-08",
+        date: "Aug 2023",
         link1: "",
         link2: "https://github.com/svmcd/Drupple"
     },
@@ -67,7 +76,7 @@ export const projects = [
         title: "Portfolio 3.0 (current)",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "nextjs typescript tailwind framermotion threejs",
-        date: "2023-06",
+        date: "Jun 2023",
         link1: "https://samedpolat.vercel.app",
         link2: ""
     },
@@ -76,7 +85,7 @@ export const projects = [
         title: "Stage blog",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "ASTRO REACT TYPESCRIPT TAILWIND CYPRESS MONGODB",
-        date: "2023-05",
+        date: "May 2023",
         link1: "https://stage-blog-svmcd.vercel.app/",
         link2: ""
     },
@@ -85,7 +94,7 @@ export const projects = [
         title: "Collezione",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "react scss",
-        date: "2023-01",
+        date: "Jan 2023",
         link1: "https://samedpolat.nl/collezione/",
         link2: "https://github.com/svmcd/collezione"
     },
@@ -94,7 +103,7 @@ export const projects = [
         title: "iTrell",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "react redux scss",
-        date: "2022-11",
+        date: "Nov 2022",
         link1: "https://samedpolat.nl/itrell/",
         link2: "https://github.com/svmcd/react-assignments/tree/master/itrell"
     },
@@ -103,7 +112,7 @@ export const projects = [
         title: "Portfolio 2.0",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "html javascript css",
-        date: "2022-10",
+        date: "Oct 2022",
         link1: "https://samedpolat.nl/portfolio2022/",
         link2: "https://github.com/svmcd/portfolio2022"
     },
@@ -112,7 +121,7 @@ export const projects = [
         title: "SDG Game",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "laravel css lottiefiles",
-        date: "2022-07",
+        date: "Jul 2022",
         link1: "https://www.sdggame.nl/",
         link2: "https://github.com/svmcd/sdggame"
     },
@@ -121,7 +130,7 @@ export const projects = [
         title: "Transformers Community",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "php css",
-        date: "2021-11",
+        date: "Nov 2021",
         link1: "https://samedpolat.nl/social-responsibility-ma_cloud/registratie/",
         link2: "https://github.com/svmcd/transformers-community"
     },
@@ -130,7 +139,7 @@ export const projects = [
         title: "corono",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "html php css js",
-        date: "2021-06",
+        date: "Jun 2021",
         link1: "https://samedpolat.nl/corono/",
         link2: "https://github.com/svmcd/corono"
     },
@@ -139,7 +148,7 @@ export const projects = [
         title: "Porftolio 1.0",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "html css js",
-        date: "2021-06",
+        date: "Jun 2021",
         link1: "https://samedpolat.nl/indev/",
     },
     {
@@ -147,7 +156,7 @@ export const projects = [
         title: "GreenHouse",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "html css js chartjs weatherjs",
-        date: "2021-04",
+        date: "Apr 2021",
         link1: "https://samedpolat.nl/GreenHouse/",
         link2: "https://github.com/svmcd/green-house"
     },
@@ -156,7 +165,7 @@ export const projects = [
         title: "Lisser Art Museum",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         technologies: "html css js",
-        date: "2021-01",
+        date: "Jan 2021",
         link1: "https://30859.hosts1.ma-cloud.nl/lamlisse/index.html",
         link2: "https://github.com/svmcd/LAM-museum"
     }
